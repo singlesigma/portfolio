@@ -47,7 +47,7 @@ function App() {
             }}
             transition={{ duration: 0.4, ease: [0.645, 0.045, 0.355, 1] }}
           >
-            [marban.]
+            [Gowtham.]
           </m.h1>
           <div className="flex items-center gap-4">
             <m.div
@@ -64,7 +64,7 @@ function App() {
                   transition: "color 0.3s ease",
                 }}
               >
-                Chennai, India
+                Ananthapur, India
               </p>
               <span
                 className={tw("h-1 w-1 rounded-full mx-3")}
@@ -89,7 +89,7 @@ function App() {
             </m.div>
             <div>
               <m.a
-                href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/Rahuletto/auto-resume/main/resume.pdf"
+                href="https://drive.google.com/file/d/1QDok8LCtduRpiNaupw27OFMPu0OK3Oqc/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={tw("md:border-l p-0 border-color md:py-1 md:px-4 font-semibold cursor-pointer")}
@@ -128,7 +128,7 @@ function App() {
                 ease: [0.645, 0.045, 0.355, 1],
               }}
             >
-              I am Marban and I am a
+              I am Gowtham and I am a
             </m.h3>
             <h1 className={tw(`flex items-start justify-start flex-col md:!flex-row md:!items-center md:!justify-center gap-2 w-[70vw] md:!w-auto min-w-[300px] md:!gap-8`)}>
               <m.span
@@ -204,7 +204,7 @@ function App() {
         <div className={tw("lg:py-36 relative flex items-center justify-center py-24 px-12 max-w-screen-xl mx-auto w-full h-screen")}>
           <Corner />
           <Paragraph
-            text={`I am Rahul Marban, currently pursuing CSE with AIML at SRMIST. While I am passionate about AI, my true love lies in designing interfaces that combine aesthetic appeal with strong user experiences. {} Taught myself to build everything from the visible parts of websites to the behind-the-scenes magic, making tech accessible and user-friendly`}
+            text={`I am Gowtham sree charan reddy, currently pursuing CSE with AIML at SRMIST.I love devolping and designing but the actual problem occured when it comes to skills,I am learning more skills to devolop and design `}
           />
         </div>
         <div className={tw("max-w-screen-xl mx-12 px-4 md:px-12 lg:!mx-auto py-16 mb-6 md:!mb-24 min-h-screen flex flex-col md:!flex-row items-start justify-between gap-6")}>
@@ -229,7 +229,7 @@ function App() {
               What i did so far?
             </m.h1>
             <p className={tw("opacity-70 w-fit mx-auto text-color text-center text-base max-w-[300px] mx-auto md:max-w-none md:text-lg mt-3")}>
-              You gotta see what my 4-years of experience got me so far.
+              You gotta see what my 6-Months of experience got me so far.
             </p>
           </div>
           <Projects />
