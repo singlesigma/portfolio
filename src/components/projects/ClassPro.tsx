@@ -74,7 +74,7 @@ const ClassPro: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        ClassPro
+                        Mana first project ikkade vostadi
                         <m.a
                             href="https://github.com/gowthamrdyy"
                             target="_blank"
@@ -156,6 +156,13 @@ const ClassPro: React.FC = () => {
                             }}
                             suffix="+"
                         />
+                        <p
+                            className={tw(
+                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
+                            )}
+                        >
+                            visits/month
+                        </p>
                     </div>
                     <div className={tw("min-w-[100px]")}>
                         <NumberFlow
@@ -169,6 +176,13 @@ const ClassPro: React.FC = () => {
                             }}
                             suffix="+"
                         />
+                        <p
+                            className={tw(
+                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
+                            )}
+                        >
+                            users/month
+                        </p>
                     </div>
                 </div>
             </div>
