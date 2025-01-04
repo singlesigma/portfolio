@@ -13,7 +13,7 @@ const SimplyDJS: React.FC = () => {
             )}
             style={{
                 width: "100vw",
-                backgroundImage: "url(/projects/sdjs.png)",
+                backgroundImage: "url(/projects/sdjs1.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: "100vh",
@@ -39,7 +39,7 @@ const SimplyDJS: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        SimplyDJS
+                       mana second de ikkade 
                         <m.a
                             href="https://simplyd.js.org"
                             target="_blank"
@@ -102,7 +102,7 @@ const SimplyDJS: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
-                        The simplest way to build complex Discord bots.
+                       
                     </m.p>
                 </div>
                 <div
@@ -128,7 +128,7 @@ const SimplyDJS: React.FC = () => {
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
                             )}
                         >
-                            downloads
+                            
                         </p>
                     </div>
                 </div>
