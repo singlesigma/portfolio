@@ -47,7 +47,7 @@ const ClassPro: React.FC = () => {
             )}
             style={{
                 width: width.get(),
-                backgroundImage: "url(/projects/classpro.png)",
+                backgroundImage: "url(/projects/classpro1.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: height.get(),
@@ -76,7 +76,7 @@ const ClassPro: React.FC = () => {
                     >
                         ClassPro
                         <m.a
-                            href="https://class-pro.vercel.app"
+                            href="https://github.com/gowthamrdyy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
@@ -136,8 +136,6 @@ const ClassPro: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
-                        University data, beautifully presented at your
-                        fingertips.
                     </m.p>
                 </div>
                 <div
@@ -158,13 +156,6 @@ const ClassPro: React.FC = () => {
                             }}
                             suffix="+"
                         />
-                        <p
-                            className={tw(
-                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
-                            )}
-                        >
-                            visits/month
-                        </p>
                     </div>
                     <div className={tw("min-w-[100px]")}>
                         <NumberFlow
@@ -178,13 +169,6 @@ const ClassPro: React.FC = () => {
                             }}
                             suffix="+"
                         />
-                        <p
-                            className={tw(
-                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
-                            )}
-                        >
-                            users/month
-                        </p>
                     </div>
                 </div>
             </div>
