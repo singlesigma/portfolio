@@ -31,7 +31,7 @@ const comments = [
         name: "Rahul",
         comment: "One of the most talented developers I've ever met, he can create amazing designs and has the ability to make them a reality. The things he has made impacts thousands on a daily basis and i believe that any team would be lucky to have an asset like him",
         title: "Student in SRM",
-        image: "/testimonials/Rahul.jpg"
+        image: "/testimonials/rahul.jpg"
     },
     {
         name: "Tharun",
