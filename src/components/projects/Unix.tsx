@@ -13,7 +13,7 @@ const Unix: React.FC = () => {
             )}
             style={{
                 width: "100vw",
-                backgroundImage: "url(/projects/unix.png)",
+                backgroundImage: "url(/projects/unix1.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: "100vh",
@@ -39,9 +39,9 @@ const Unix: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        Unix Dots
+                     mana third project ikkade untundi
                         <m.a
-                            href="https://unixporn-dots.github.io/"
+                            href="https://github.com/gowthamrdyy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
@@ -102,7 +102,7 @@ const Unix: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
-                        A collection of dotfiles and icons from the r/unixporn community
+                
                     </m.p>
                 </div>
                 <div
@@ -128,7 +128,7 @@ const Unix: React.FC = () => {
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
                             )}
                         >
-                            stars
+                          
                         </p>
                     </div>
                     <div className={tw("min-w-[100px]")}>
@@ -148,7 +148,7 @@ const Unix: React.FC = () => {
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
                             )}
                         >
-                            themes
+                            
                         </p>
                     </div>
                 </div>
