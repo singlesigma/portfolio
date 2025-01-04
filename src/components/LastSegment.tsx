@@ -65,7 +65,7 @@ export default function LastSegment() {
                 </m.p>
             </div>
             <m.a
-                href="mailto:rahulmarban@gmail.com"
+                href="mailto:iamgowthamsree@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={tw(
