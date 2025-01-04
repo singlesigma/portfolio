@@ -15,47 +15,30 @@ const skillsData = [
     {
         type: "Languages",
         items: [
-            "JavaScript",
-            "TypeScript",
             "Python",
             "C",
             "Java",
-            "Go",
         ],
     },
     {
         type: "Frameworks",
         items: [
-            "Next.js",
-            "React",
-            "Astro",
-            "Solid",
-            "Fresh",
-            "FastAPI",
-            "Pytorch",
-            "Express",
-            "Hono",
-            "ElysiaJS",
-            "React Native",
-            "Tauri",
-            "Framer Motion",
-            "TailwindCSS",
+           "i am",
+            "learning",
+            "Frame works",
+            "it",
+            "Takes",
+            "time",
+            "to learn",
         ],
     },
     {
         type: "Tools",
         items: [
             "VS Code",
-            "WSL",
             "GitHub",
             "Figma",
             "MongoDB",
-            "PostgreSQL",
-            "Cloudflare D1",
-            "Supabase",
-            "Node.js",
-            "Bun",
-            "Deno",
         ],
     },
 ];
@@ -118,10 +101,8 @@ const SkillsSection: FC = () => {
                             "opacity-40 text-color text-base mt-3 max-w-[400px]",
                         )}
                     >
-                        With 4 years in tech, I've built projects, mastered
-                        tools, and collaborated with amazing teams. From coding
-                        to cloud technologies, I've worked on solutions that
-                        make an impact. Here&apos;s what I bring to the table!
+                        With 6 months in tech,i havent done no projects in 2024 and in this year
+                        2025 gonna be huge task to me to learn anf=d build projects.
                     </p>
                 </div>
                 <div className={tw("")} ref={numRef}>
@@ -132,9 +113,7 @@ const SkillsSection: FC = () => {
                                     "opacity-40 text-color text-base mb-3 max-w-[400px]",
                                 )}
                             >
-                                It&apos;s not about the quantity, it&apos;s
-                                about the quality. I&apos;ve worked on projects
-                                that matter.
+                                Still on Developing
                             </p>
                         )
                         : (
@@ -143,9 +122,7 @@ const SkillsSection: FC = () => {
                                     "opacity-40 text-color text-base mb-3 max-w-[400px]",
                                 )}
                             >
-                                Development isn&apos;t just about code,
-                                it&apos;s about the people and the impact we
-                                make.
+                               Will updated in Future
                             </p>
                         )}
                     <div className={tw("flex items-center justify-between")}>
