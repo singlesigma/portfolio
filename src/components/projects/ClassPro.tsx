@@ -47,7 +47,7 @@ const ClassPro: React.FC = () => {
             )}
             style={{
                 width: width.get(),
-                backgroundImage: "url(/projects/classpro1.png)",
+                backgroundImage: "url(/projects/classpro.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: height.get(),
@@ -76,7 +76,7 @@ const ClassPro: React.FC = () => {
                     >
                         ClassPro
                         <m.a
-                            href="https://github.com/gowthamrdyy"
+                            href="https://class-pro.vercel.app"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
@@ -136,10 +136,28 @@ const ClassPro: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
+                        University data, beautifully presented at your
+                        fingertips.
                     </m.p>
                 </div>
+                <div
+                    ref={numRef}
+                    className={tw(
+                        "flex gap-8 items-center border-t border-color/40 w-full pt-3 md:!w-fit lg:!border-t-0 lg:border-l lg:!pt-0 lg:pl-6 justify-between",
+                    )}
+                >
                     <div className={tw("min-w-[100px]")}>
-                        
+                        <NumberFlow
+                            value={useInView(numRef) ? 1200000 : 0}
+                            className={tw(
+                                "lg:text-5xl md:text-4xl text-3xl font-semibold text-color",
+                            )}
+                            format={{
+                                compactDisplay: "short",
+                                notation: "compact",
+                            }}
+                            suffix="+"
+                        />
                         <p
                             className={tw(
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
@@ -148,6 +166,18 @@ const ClassPro: React.FC = () => {
                             visits/month
                         </p>
                     </div>
+                    <div className={tw("min-w-[100px]")}>
+                        <NumberFlow
+                            value={useInView(numRef) ? 26000 : 0}
+                            className={tw(
+                                "lg:text-5xl md:text-4xl text-3xl font-semibold text-color",
+                            )}
+                            format={{
+                                compactDisplay: "short",
+                                notation: "compact",
+                            }}
+                            suffix="+"
+                        />
                         <p
                             className={tw(
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
