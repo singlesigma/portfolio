@@ -12,7 +12,7 @@ const comments = [
     {
         name: "Guna adhityya reddy",
         comment: "All his work is very minimalist, and refined, that at this point, his solutions to problems are not only convenient, but also a treat for the eyes. He crafts marvellous programs and websites.",
-        title: "2nd year at SRM University",
+        title: "1st year student in NIE mysore",
         image: "/testimonials/adi.jpg"
     },
     {
@@ -30,13 +30,13 @@ const comments = [
     {
         name: "Rahul",
         comment: "One of the most talented developers I've ever met, he can create amazing designs and has the ability to make them a reality. The things he has made impacts thousands on a daily basis and i believe that any team would be lucky to have an asset like him",
-        title: "Syndicate at NextTech Lab",
+        title: "Student in SRM",
         image: "/testimonials/Rahul.jpg"
     },
     {
         name: "Tharun",
         comment: "He's an amazing developer and a great person to work with. I've worked with him for over two years on projects like simply-djs and simply-xp. He's talented, reliable, and great at problem-solving, making teamwork fun and productive.",
-        title: "Contributor to simply-xp",
+        title: "Student in SRM",
         image: "/testimonials/Tharun.jpg"
     }
 ];
