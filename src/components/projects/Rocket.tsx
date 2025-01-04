@@ -1,7 +1,9 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { tw } from "../../../twind/twind";
-import { useScroll, useTransform } from "framer-motion";
+import { useInView, useScroll, useTransform } from "framer-motion";
 import * as m from "motion/react-m"
+import NumberFlow from "@number-flow/react";
+
 const Rocket: React.FC = () => {
     const divRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll();
@@ -72,7 +74,7 @@ const Rocket: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        mana second project ikkada vesukundam
+                        mana 4th project ikkada vesukundam
                         <m.a
                             href="https://github.com/gowthamrdyy"
                             target="_blank"
@@ -142,6 +144,46 @@ const Rocket: React.FC = () => {
                         "flex gap-8 items-center border-t border-color/40 w-full pt-3 md:!w-fit lg:!border-t-0 lg:border-l lg:!pt-0 lg:pl-6 justify-between",
                     )}
                 >
+                    <div className={tw("min-w-[100px]")}>
+                        <NumberFlow
+                            value={useInView(numRef) ? 30 : 0}
+                            className={tw(
+                                "lg:text-5xl md:text-4xl text-3xl font-semibold text-color",
+                            )}
+                            format={{
+                                compactDisplay: "short",
+                                notation: "compact",
+                            }}
+                            suffix="%"
+                        />
+                        <p
+                            className={tw(
+                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
+                            )}
+                        >
+                     
+                        </p>
+                    </div>
+                    <div className={tw("min-w-[100px]")}>
+                        <NumberFlow
+                            value={useInView(numRef) ? 49 : 0}
+                            className={tw(
+                                "lg:text-5xl md:text-4xl text-3xl font-semibold text-color",
+                            )}
+                            format={{
+                                compactDisplay: "short",
+                                notation: "compact",
+                            }}
+                            suffix="%"
+                        />
+                        <p
+                            className={tw(
+                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
+                            )}
+                        >
+                          
+                        </p>
+                    </div>
                 </div>
             </div>
         </m.div>
