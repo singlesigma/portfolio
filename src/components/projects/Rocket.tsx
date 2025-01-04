@@ -47,7 +47,7 @@ const Rocket: React.FC = () => {
             )}
             style={{
                 width: width.get(),
-                backgroundImage: "url(/projects/rocket.png)",
+                backgroundImage: "url(/projects/rocket1.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: height.get(),
@@ -74,9 +74,9 @@ const Rocket: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        Rocket
+                        mana second project ikkada vesukundam
                         <m.a
-                            href="https://github.com/rahuletto/rocket"
+                            href="https://github.com/gowthamrdyy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
@@ -136,8 +136,6 @@ const Rocket: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
-                        A super-fast, ram-efficient, and lightweight code editor
-                        that's ready to ship your code to the next level! 🚀
                     </m.p>
                 </div>
                 <div
@@ -146,46 +144,6 @@ const Rocket: React.FC = () => {
                         "flex gap-8 items-center border-t border-color/40 w-full pt-3 md:!w-fit lg:!border-t-0 lg:border-l lg:!pt-0 lg:pl-6 justify-between",
                     )}
                 >
-                    <div className={tw("min-w-[100px]")}>
-                        <NumberFlow
-                            value={useInView(numRef) ? 30 : 0}
-                            className={tw(
-                                "lg:text-5xl md:text-4xl text-3xl font-semibold text-color",
-                            )}
-                            format={{
-                                compactDisplay: "short",
-                                notation: "compact",
-                            }}
-                            suffix="%"
-                        />
-                        <p
-                            className={tw(
-                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
-                            )}
-                        >
-                            ram efficient
-                        </p>
-                    </div>
-                    <div className={tw("min-w-[100px]")}>
-                        <NumberFlow
-                            value={useInView(numRef) ? 49 : 0}
-                            className={tw(
-                                "lg:text-5xl md:text-4xl text-3xl font-semibold text-color",
-                            )}
-                            format={{
-                                compactDisplay: "short",
-                                notation: "compact",
-                            }}
-                            suffix="%"
-                        />
-                        <p
-                            className={tw(
-                                "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
-                            )}
-                        >
-                            smaller
-                        </p>
-                    </div>
                 </div>
             </div>
         </m.div>
