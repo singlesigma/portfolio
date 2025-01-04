@@ -47,7 +47,7 @@ const ClassPro: React.FC = () => {
             )}
             style={{
                 width: width.get(),
-                backgroundImage: "url(/projects/classpro1.png)",
+                backgroundImage: "url(/projects/classpro.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: height.get(),
@@ -74,9 +74,9 @@ const ClassPro: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        Mana first project ikkade vostadi
+                        ClassPro
                         <m.a
-                            href="https://github.com/gowthamrdyy"
+                            href="https://class-pro.vercel.app"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
@@ -136,6 +136,8 @@ const ClassPro: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
+                        University data, beautifully presented at your
+                        fingertips.
                     </m.p>
                 </div>
                 <div
