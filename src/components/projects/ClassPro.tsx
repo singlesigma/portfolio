@@ -47,7 +47,7 @@ const ClassPro: React.FC = () => {
             )}
             style={{
                 width: width.get(),
-                backgroundImage: "url(/projects/classpro.png)",
+                backgroundImage: "url(/projects/classpro1.png)",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
                 height: height.get(),
