@@ -18,7 +18,7 @@ const comments = [
     {
         name: "Dheeraj",
         comment: "Great UI and UX design skills and an experienced front-end developer. Inspired others in front-end development because of his exemplary work.",
-        title: "Founder at Neugence",
+        title: "Student at SRM",
         image: "/testimonials/Dheeraj.jpg"
     },
     {
