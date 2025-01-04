@@ -41,7 +41,7 @@ const SimplyDJS: React.FC = () => {
                     >
                        mana second de ikkade 
                         <m.a
-                            href="https://simplyd.js.org"
+                            href="https://github.com/gowthamrdyy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
