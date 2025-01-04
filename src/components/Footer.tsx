@@ -57,7 +57,7 @@ export default function Footer() {
                 }}
             >
                 <m.a
-                    href="https://github.com/rahuletto"
+                    href="https://github.com/gowthamrdyy"
                     className={tw(
                         "rounded-full p-3 px-6 md:px-9 cursor-pointer",
                     )}
@@ -81,7 +81,7 @@ export default function Footer() {
                     <FaGithub className={tw("text-2xl md:text-4xl")} />
                 </m.a>
                 <m.a
-                    href="https://linkedin.com/in/rahul-marban"
+                    href="https://www.linkedin.com/in/gowtham-sree-charan-reddy-1a5872309/?originalSubdomain=in"
                     className={tw(
                         "rounded-full p-3 px-6 md:px-9 cursor-pointer",
                     )}
@@ -107,7 +107,7 @@ export default function Footer() {
                     <FaLinkedinIn className={tw("text-2xl md:text-4xl")} />
                 </m.a>
                 <m.a
-                    href="https://x.com/rahuletto"
+                    href="https://x.com/gowthamrdyy"
                     className={tw(
                         "rounded-full p-3 px-6 md:px-9 cursor-pointer",
                     )}
@@ -136,7 +136,7 @@ export default function Footer() {
                     style={{
                         willChange: "background, color, opacity",
                     }}
-                    href="https://instagram.com/rahul_marban"
+                    href="https://instagram.com/gowthamrdyy"
                     className={tw(
                         "rounded-full p-3 px-6 md:px-9 cursor-pointer",
                     )}
@@ -167,7 +167,7 @@ export default function Footer() {
                 exit={{ opacity: 0, filter: "blur(10px)" }}
             >
                 <m.a
-                    href="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/Rahuletto/auto-resume/main/resume.pdf"
+                    href="https://drive.google.com/file/d/1QDok8LCtduRpiNaupw27OFMPu0OK3Oqc/view?usp=drive_link"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={tw(
@@ -218,7 +218,7 @@ export default function Footer() {
             <div className="absolute left-0 px-8 pl-32 md:pl-24 md:px-24 w-full bottom-24 flex gap-12 items-center justify-between w-full">
                 <hr className="w-full border-2 border-background" />
                 <img
-                    src="/svgs/signature.svg"
+                    src="/svgs/signature1.svg"
                     alt="Signature"
                     className="h-12"
                 />
