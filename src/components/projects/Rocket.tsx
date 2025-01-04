@@ -1,9 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { tw } from "../../../twind/twind";
-import { useInView, useScroll, useTransform } from "framer-motion";
+import { useScroll, useTransform } from "framer-motion";
 import * as m from "motion/react-m"
-import NumberFlow from "@number-flow/react";
-
 const Rocket: React.FC = () => {
     const divRef = useRef<HTMLDivElement>(null);
     const { scrollY } = useScroll();
