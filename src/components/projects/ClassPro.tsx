@@ -74,9 +74,9 @@ const ClassPro: React.FC = () => {
                             delay: 0.2,
                         }}
                     >
-                        ClassPro
+                        Mana first project ikkade vesukuntam
                         <m.a
-                            href="https://class-pro.vercel.app"
+                            href="https://github.com/gowthamrdyy"
                             target="_blank"
                             rel="noopener noreferrer"
                             className={tw(
@@ -136,8 +136,6 @@ const ClassPro: React.FC = () => {
                             delay: 0.4,
                         }}
                     >
-                        University data, beautifully presented at your
-                        fingertips.
                     </m.p>
                 </div>
                 <div
@@ -163,7 +161,6 @@ const ClassPro: React.FC = () => {
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
                             )}
                         >
-                            visits/month
                         </p>
                     </div>
                     <div className={tw("min-w-[100px]")}>
@@ -183,7 +180,6 @@ const ClassPro: React.FC = () => {
                                 "opacity-40 text-color text-sm lg:-mt-4 -mt-2 max-w-[400px]",
                             )}
                         >
-                            users/month
                         </p>
                     </div>
                 </div>
