@@ -204,7 +204,7 @@ function App() {
         <div className={tw("lg:py-36 relative flex items-center justify-center py-24 px-12 max-w-screen-xl mx-auto w-full h-screen")}>
           <Corner />
           <Paragraph
-            text={`I am Gowtham sree charan reddy, currently pursuing CSE with AIML at SRMIST.I love devolping and designing but the actual problem occured when it comes to skills,I am learning more skills to devolop and design `}
+            text={`I am Gowtham sree charan reddy, currently pursuing CSE with AIML at SRMIST.I love devolping and designing but the actual problem occured when it comes to these type of projects is skills,I am learning more skills to devolop and design `}
           />
         </div>
         <div className={tw("max-w-screen-xl mx-12 px-4 md:px-12 lg:!mx-auto py-16 mb-6 md:!mb-24 min-h-screen flex flex-col md:!flex-row items-start justify-between gap-6")}>
