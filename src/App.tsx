@@ -47,7 +47,7 @@ function App() {
             }}
             transition={{ duration: 0.4, ease: [0.645, 0.045, 0.355, 1] }}
           >
-            [Gowtham.]
+            [Gowtham sree.]
           </m.h1>
           <div className="flex items-center gap-4">
             <m.div
