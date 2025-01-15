@@ -5,19 +5,19 @@ import { useState, useEffect } from "react";
 const comments = [
     {
         name: "Prasanna kumar reddy",
-        comment: "Having worked with him, I can confidently say he delivers nothing short of perfection. Always striving to improve, his work speaks volumes for itself—no words needed.",
+        comment: "Vediki antha scene ledu le edo ala ala chestadu ,pani pata undadu anduke time pass kaka ila chestu untadu em chestam antha chesi naku chupistadu tappadu ika chudali nene.",
         title: "Student at SRM",
         image: "/testimonials/rachit.jpg"
     },
     {
         name: "Guna adhityya reddy",
-        comment: "All his work is very minimalist, and refined, that at this point, his solutions to problems are not only convenient, but also a treat for the eyes. He crafts marvellous programs and websites.",
+        comment: "Memu school nunchi ne friends vediki ,nake telikunda na photo lu,na peru anni vadesadu ika tappadu oko sari ila jargutunatai maname chusi kshmainchale ika ,sarle vodeleyandi",
         title: "1st year student in NIE mysore",
         image: "/testimonials/adi.jpg"
     },
     {
         name: "Dheeraj",
-        comment: "Great UI and UX design skills and an experienced front-end developer. Inspired others in front-end development because of his exemplary work.",
+        comment: "cheseke and cheppike em ledu emo mari future lo em chesatado,cheyyado antha taravata telustadi just wait and see anthe",
         title: "Student at SRM",
         image: "/testimonials/Dheeraj.jpg"
     },
