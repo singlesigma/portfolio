@@ -90,7 +90,7 @@ export default function LastSegment() {
                 }}
             >
                 <span className={tw("font-semibold")}>
-                    Say Hello
+                    Say Hello!
                 </span>
             </m.a>
         </m.div>
