@@ -44,7 +44,7 @@ export default function LastSegment() {
                         "text-4xl font-semibold text-center md:text-5xl mt-4",
                     )}
                 >
-                    Love at first sight
+                    Love at first sight.
                 </m.h1>
                 <m.p
                     initial={{ opacity: 0, filter: "blur(10px)" }}
