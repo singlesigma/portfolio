@@ -101,8 +101,8 @@ const SkillsSection: FC = () => {
                             "opacity-40 text-color text-base mt-3 max-w-[400px]",
                         )}
                     >
-                        With 6 months in tech,i havent done no projects in 2024 and in this year
-                        2025 gonna be huge task to me to learn anf=d build projects.
+                        With 6 months in tech,i haven't done no projects in 2024 and in this year
+                        "2025",gonna be huge task to me to learn build projects.
                     </p>
                 </div>
                 <div className={tw("")} ref={numRef}>
@@ -113,7 +113,7 @@ const SkillsSection: FC = () => {
                                     "opacity-40 text-color text-base mb-3 max-w-[400px]",
                                 )}
                             >
-                                Still on Developing
+                                Still on Developing!!!!!!!!!!!!!!!
                             </p>
                         )
                         : (
