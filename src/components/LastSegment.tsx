@@ -61,7 +61,7 @@ export default function LastSegment() {
                 >
                     Pouring passion and precision into every design to create
                     experiences that are visually captivating and intuitively
-                    engaging
+                    engaging.
                 </m.p>
             </div>
             <m.a
