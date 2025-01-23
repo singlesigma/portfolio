@@ -18,6 +18,7 @@ const skillsData = [
             "Python",
             "C",
             "Java",
+            "C++",
         ],
     },
     {
