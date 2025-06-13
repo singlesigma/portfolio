@@ -8,7 +8,6 @@ const StarSVG = lazy(() => import("./svgs/star"));
 const Paragraph = lazy(() => import("./components/Paragraph"));
 const Corner = lazy(() => import("./components/Corner"));
 const ServicesSection = lazy(() => import("./components/Skills"));
-const Projects = lazy(() => import("./components/Projects"));
 const CommentSection = lazy(() => import("./components/CommentSection"));
 const LastSegment = lazy(() => import("./components/LastSegment"));
 const Footer = lazy(() => import("./components/Footer"));
@@ -209,30 +208,6 @@ function App() {
         </div>
         <div className={tw("max-w-screen-xl mx-12 px-4 md:px-12 lg:!mx-auto py-16 mb-6 md:!mb-24 min-h-screen flex flex-col md:!flex-row items-start justify-between gap-6")}>
           <ServicesSection />
-        </div>
-        <div className={tw("py-16 min-h-screen")}>
-          <div>
-            <m.h1
-              initial={{ opacity: 0, filter: "blur(10px)" }}
-              whileInView={{ opacity: 1, filter: "blur(0px)" }}
-              exit={{ opacity: 0, filter: "blur(10px)" }}
-              style={{
-                willChange: "opacity, filter",
-              }}
-              transition={{
-                duration: 1,
-                delay: 0.3,
-                ease: [0.25, 0.8, 0.25, 1],
-              }}
-              className={tw("font-semibold text-(lg:5xl md:4xl 3xl) text-center w-fit mx-auto")}
-            >
-              What i did so far?
-            </m.h1>
-            <p className={tw("opacity-70 w-fit mx-auto text-color text-center text-base max-w-[300px] mx-auto md:max-w-none md:text-lg mt-3")}>
-              You gotta see what my 6-Months of experience got me so far.
-            </p>
-          </div>
-          <Projects />
         </div>
         <div className={tw("pt-32 min-h-screen")}>
           <m.h1
