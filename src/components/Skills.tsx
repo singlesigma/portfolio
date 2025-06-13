@@ -2,14 +2,12 @@ import { FC, useEffect, useRef, useState } from "react";
 import {
     AnimatePresence,
     cubicBezier,
-    useInView,
     useScroll,
     useTransform,
 } from "motion/react";
 import * as m from "motion/react-m"
 
 import { tw } from "../../twind/twind";
-import NumberFlow from "@number-flow/react";
 
 const skillsData = [
     {
@@ -47,7 +45,6 @@ const skillsData = [
 const SkillsSection: FC = () => {
     const [currentSection, setCurrentSection] = useState<number>(0);
     const sectionRefs = useRef<HTMLDivElement[]>([]);
-    const numRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = () => {
         sectionRefs.current.forEach((ref, index) => {
@@ -106,7 +103,7 @@ const SkillsSection: FC = () => {
                         "2025",gonna be huge task to me to learn build projects.
                     </p>
                 </div>
-                <div className={tw("")} ref={numRef}>
+                <div className={tw("")}>
                     {currentSection == 0
                         ? (
                             <p
@@ -128,21 +125,13 @@ const SkillsSection: FC = () => {
                         )}
                     <div className={tw("flex items-center justify-between")}>
                         <div className={tw("min-w-[100px]")}>
-                            <NumberFlow
-                                value={useInView(numRef)
-                                    ? currentSection == 0
-                                        ? 35
-                                        : currentSection == 1
-                                        ? 1200000
-                                        : 78009
-                                    : 0}
-                                className={tw("text-6xl font-semibold text-color")}
-                                format={{
-                                    compactDisplay: "short",
-                                    notation: "compact",
-                                }}
-                                suffix="+"
-                            />
+                            <div className={tw("text-6xl font-semibold text-color")}>
+                                {currentSection == 0
+                                    ? "35+"
+                                    : currentSection == 1
+                                    ? "1.2M+"
+                                    : "78K+"}
+                            </div>
                             <p
                                 className={tw(
                                     "opacity-40 text-color text-base -mt-4 max-w-[400px]",
@@ -156,21 +145,13 @@ const SkillsSection: FC = () => {
                             </p>
                         </div>
                         <div className={tw("min-w-[100px]")}>
-                            <NumberFlow
-                                value={useInView(numRef)
-                                    ? currentSection == 0
-                                        ? 230
-                                        : currentSection == 1
-                                        ? 25000
-                                        : 9068
-                                    : 0}
-                                className={tw("text-6xl font-semibold text-color")}
-                                format={{
-                                    compactDisplay: "short",
-                                    notation: "compact",
-                                }}
-                                suffix="+"
-                            />
+                            <div className={tw("text-6xl font-semibold text-color")}>
+                                {currentSection == 0
+                                    ? "230+"
+                                    : currentSection == 1
+                                    ? "25K+"
+                                    : "9.1K+"}
+                            </div>
                             <p
                                 className={tw(
                                     "opacity-40 text-color text-base -mt-4 max-w-[400px]",
