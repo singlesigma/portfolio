@@ -103,69 +103,6 @@ const SkillsSection: FC = () => {
                         "2025",gonna be huge task to me to learn build projects.
                     </p>
                 </div>
-                <div className={tw("")}>
-                    {currentSection == 0
-                        ? (
-                            <p
-                                className={tw(
-                                    "opacity-40 text-color text-base mb-3 max-w-[400px]",
-                                )}
-                            >
-                                Still on Developing!!!!!!!!!!!!!!!
-                            </p>
-                        )
-                        : (
-                            <p
-                                className={tw(
-                                    "opacity-40 text-color text-base mb-3 max-w-[400px]",
-                                )}
-                            >
-                               Will updated in Future
-                            </p>
-                        )}
-                    <div className={tw("flex items-center justify-between")}>
-                        <div className={tw("min-w-[100px]")}>
-                            <div className={tw("text-6xl font-semibold text-color")}>
-                                {currentSection == 0
-                                    ? "35+"
-                                    : currentSection == 1
-                                    ? "1.2M+"
-                                    : "78K+"}
-                            </div>
-                            <p
-                                className={tw(
-                                    "opacity-40 text-color text-base -mt-4 max-w-[400px]",
-                                )}
-                            >
-                                {currentSection == 0
-                                    ? "open-source projects"
-                                    : currentSection == 1
-                                    ? "visits/month"
-                                    : "visits/day"}
-                            </p>
-                        </div>
-                        <div className={tw("min-w-[100px]")}>
-                            <div className={tw("text-6xl font-semibold text-color")}>
-                                {currentSection == 0
-                                    ? "230+"
-                                    : currentSection == 1
-                                    ? "25K+"
-                                    : "9.1K+"}
-                            </div>
-                            <p
-                                className={tw(
-                                    "opacity-40 text-color text-base -mt-4 max-w-[400px]",
-                                )}
-                            >
-                                {currentSection == 0
-                                    ? "github stars"
-                                    : currentSection == 1
-                                    ? "users/month"
-                                    : "users/day"}
-                            </p>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div
