@@ -146,12 +146,17 @@ const SkillsSection: FC = () => {
                             transition={{ duration: 0.6 }}
                         >
                             <div className={tw("flex items-center gap-4 mb-6")}>
+                                {(() => {
+                                    const IconComponent = skillsData[activeSkill].icon;
+                                    return (
                                 <m.div
                                     className={tw(`p-4 rounded-apple bg-gradient-to-r ${skillsData[activeSkill].color}`)}
                                     whileHover={{ scale: 1.1, rotate: 10 }}
                                 >
-                                    <skillsData[activeSkill].icon className={tw("w-8 h-8 text-white")} />
+                                    <IconComponent className={tw("w-8 h-8 text-white")} />
                                 </m.div>
+                                    );
+                                })()}
                                 <h3 className={tw("text-4xl font-bold text-textPrimary")}>
                                     {skillsData[activeSkill].type}
                                 </h3>
@@ -267,6 +272,9 @@ const SkillCard: FC<{
             {/* Content */}
             <div className={tw("relative z-10")}>
                 <div className={tw("flex items-center gap-4 mb-6")}>
+                    {(() => {
+                        const IconComponent = skill.icon;
+                        return (
                     <m.div
                         className={tw(`p-3 rounded-apple bg-gradient-to-r ${skill.color}`)}
                         whileHover={{ scale: 1.1, rotate: 10 }}
@@ -275,8 +283,10 @@ const SkillCard: FC<{
                             rotate: isActive ? 5 : 0
                         }}
                     >
-                        <skill.icon className={tw("w-6 h-6 text-white")} />
+                        <IconComponent className={tw("w-6 h-6 text-white")} />
                     </m.div>
+                        );
+                    })()}
                     <h3 className={tw("text-2xl font-bold text-textPrimary")}>
                         {skill.type}
                     </h3>
