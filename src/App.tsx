@@ -134,45 +134,61 @@ function App() {
                 Hello, I'm Gowtham and I'm a
               </m.p>
               
-              <div className={tw("flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-12")}>
-                <m.h1
-                  className={tw("text-7xl md:text-9xl lg:text-[12rem] font-black text-textPrimary smooth-text hero-text")}
-                  initial={{ opacity: 0, rotateX: 90 }}
-                  animate={{ opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 1.5, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                  Designer
-                </m.h1>
-                
+              {/* Continuous Scrolling Marquee */}
+              <div className={tw("relative overflow-hidden mb-12 h-32 md:h-48 lg:h-64")}>
                 <m.div
-                  className={tw("text-6xl md:text-8xl")}
-                  initial={{ opacity: 0, rotate: -360, scale: 0 }}
-                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
-                  transition={{ duration: 2, delay: 2.2, type: "spring", stiffness: 100 }}
+                  className={tw("flex items-center whitespace-nowrap")}
+                  animate={{
+                    x: [0, -2000],
+                  }}
+                  transition={{
+                    duration: 20,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 1.6 }}
                 >
-                  <m.div
-                    animate={{ 
-                      rotate: [0, 360],
-                      scale: [1, 1.1, 1]
-                    }}
-                    transition={{ 
-                      duration: 8,
-                      repeat: Infinity,
-                      ease: "linear"
-                    }}
-                  >
-                    ✦
-                  </m.div>
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <div key={i} className={tw("flex items-center gap-8 mr-8")}>
+                      <span className={tw("text-6xl md:text-8xl lg:text-[10rem] font-black text-textPrimary hero-text")}>
+                        Designer
+                      </span>
+                      <m.div
+                        className={tw("text-4xl md:text-6xl lg:text-8xl")}
+                        animate={{ 
+                          rotate: [0, 360],
+                          scale: [1, 1.2, 1]
+                        }}
+                        transition={{ 
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                      >
+                        ✦
+                      </m.div>
+                      <span className={tw("text-6xl md:text-8xl lg:text-[10rem] font-black text-gradient hero-text")}>
+                        Developer
+                      </span>
+                      <m.div
+                        className={tw("text-4xl md:text-6xl lg:text-8xl")}
+                        animate={{ 
+                          rotate: [0, -360],
+                          scale: [1, 1.2, 1]
+                        }}
+                        transition={{ 
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                      >
+                        ⚡
+                      </m.div>
+                    </div>
+                  ))}
                 </m.div>
-                
-                <m.h1
-                  className={tw("text-7xl md:text-9xl lg:text-[12rem] font-black text-gradient smooth-text hero-text")}
-                  initial={{ opacity: 0, rotateX: -90 }}
-                  animate={{ opacity: 1, rotateX: 0 }}
-                  transition={{ duration: 1.5, delay: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-                >
-                  Developer
-                </m.h1>
               </div>
             </m.div>
           </m.div>
