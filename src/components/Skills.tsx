@@ -74,16 +74,17 @@ const SkillsSection: FC = () => {
                                 exit={{ opacity: 0, x: 20 }}
                                 transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
                             >
+                                {skillsData[currentSection] && (() => {
+                                    const CurrentIcon = skillsData[currentSection].icon;
+                                    return (
                                 <div className={tw("flex items-center gap-4 mb-6")}>
-                                    {skillsData[currentSection] && (
-                                        <skillsData[currentSection].icon 
-                                            className={tw("w-12 h-12 text-accent")} 
-                                        />
-                                    )}
+                                            <CurrentIcon className={tw("w-12 h-12 text-accent")} />
                                     <h1 className={tw("text-4xl lg:text-5xl font-bold text-textPrimary")}>
                                         {skillsData[currentSection]?.type || "Skills"}
                                     </h1>
                                 </div>
+                                    );
+                                })()}
                                 
                                 <p className={tw("text-lg text-textSecondary leading-relaxed")}>
                                     {skillsData[currentSection]?.description || 
