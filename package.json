@@ -20,7 +20,6 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
-    "twind": "^0.16.19"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
