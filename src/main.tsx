@@ -9,13 +9,12 @@ createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ReactLenis
       root
-      className="overflow-x-hidden w-screen"
       options={{
-      syncTouch: false,
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      gestureOrientation: "vertical",
-      easing: (t: number) => 1 - Math.pow(1 - t, 4),
+        lerp: 0.1,
+        duration: 1.2,
+        smoothWheel: true,
+        smoothTouch: false,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       }}
     >
       <App />

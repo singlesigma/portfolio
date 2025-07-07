@@ -1,107 +1,110 @@
 import { tw } from "../../twind/twind";
 import * as m from "motion/react-m";
-import { lazy } from "react";
-
-const FaArrowUp = lazy(() =>
-    import("react-icons/fa6").then((module) => ({ default: module.FaArrowUp }))
-);
-const FaGithub = lazy(() =>
-    import("react-icons/fa6").then((module) => ({ default: module.FaGithub }))
-);
-const FaInstagram = lazy(() =>
-    import("react-icons/fa6").then((module) => ({
-        default: module.FaInstagram,
-    }))
-);
-const FaLinkedinIn = lazy(() =>
-    import("react-icons/fa6").then((module) => ({
-        default: module.FaLinkedinIn,
-    }))
-);
-const FaXTwitter = lazy(() =>
-    import("react-icons/fa6").then((module) => ({ default: module.FaXTwitter }))
-);
+import { ArrowUp, Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 export default function Footer() {
+    const socialLinks = [
+        { 
+            icon: Github, 
+            href: "https://github.com/gowthamrdyy",
+            label: "GitHub"
+        },
+        { 
+            icon: Linkedin, 
+            href: "https://www.linkedin.com/in/gowtham-sree-charan-reddy-1a5872309/?originalSubdomain=in",
+            label: "LinkedIn"
+        },
+        { 
+            icon: Twitter, 
+            href: "https://x.com/gowthamrdyy",
+            label: "Twitter"
+        },
+        { 
+            icon: Instagram, 
+            href: "https://instagram.com/gowthamrdyy",
+            label: "Instagram"
+        }
+    ];
+
     return (
-        <footer className={tw("relative overflow-hidden")}>
-            <div className={tw("absolute inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900")} />
-            <div className={tw("absolute inset-0 bg-gradient-to-t from-black/50 to-transparent")} />
-            
-            <div className={tw("relative z-10 min-h-screen flex flex-col justify-between p-8 md:p-16")}>
-                <div className={tw("flex-1 flex flex-col justify-center items-center text-center")}>
+        <footer className={tw("relative py-24 px-6 bg-surface")}>
+            <div className={tw("max-w-6xl mx-auto")}>
+                <div className={tw("text-center mb-16")}>
                     <m.h1
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className={tw("text-5xl md:text-7xl lg:text-8xl font-bold mb-8 gradient-text")}
+                        viewport={{ once: true }}
+                        className={tw("text-5xl md:text-7xl lg:text-8xl font-bold mb-8 text-textPrimary smooth-text")}
                     >
                         Building stories<br />through code.
                     </m.h1>
                     
                     <m.p
-                        initial={{ opacity: 0, y: 30 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
-                        className={tw("text-xl md:text-2xl text-color-secondary mb-12 max-w-2xl")}
+                        viewport={{ once: true }}
+                        className={tw("text-xl md:text-2xl text-textSecondary mb-12 max-w-2xl mx-auto")}
                     >
                         Crafting digital experiences that inspire and engage
                     </m.p>
                 </div>
 
-                <div className={tw("flex flex-col items-center gap-8")}>
+                <div className={tw("flex flex-col items-center gap-8 mb-16")}>
+                    {/* Social Links */}
                     <m.div
-                        className={tw("flex gap-4 glass-effect rounded-full p-2")}
+                        className={tw("flex gap-4")}
                         initial={{ opacity: 0, scale: 0.8 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.4 }}
+                        viewport={{ once: true }}
                     >
-                        {[
-                            { icon: FaGithub, href: "https://github.com/gowthamrdyy", color: "hover:text-purple-400" },
-                            { icon: FaLinkedinIn, href: "https://www.linkedin.com/in/gowtham-sree-charan-reddy-1a5872309/?originalSubdomain=in", color: "hover:text-blue-400" },
-                            { icon: FaXTwitter, href: "https://x.com/gowthamrdyy", color: "hover:text-cyan-400" },
-                            { icon: FaInstagram, href: "https://instagram.com/gowthamrdyy", color: "hover:text-pink-400" }
-                        ].map((social, index) => (
+                        {socialLinks.map((social, index) => (
                             <m.a
                                 key={index}
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={tw(`p-4 rounded-full glass-effect transition-all duration-300 ${social.color} hover:scale-110`)}
+                                className={tw("glass p-4 rounded-apple transition-all duration-200 hover:bg-accent hover:text-white")}
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.95 }}
+                                aria-label={social.label}
                             >
-                                <social.icon className={tw("text-2xl")} />
+                                <social.icon className={tw("w-6 h-6")} />
                             </m.a>
                         ))}
                     </m.div>
 
+                    {/* Action Buttons */}
                     <div className={tw("flex gap-4")}>
                         <m.a
                             href="https://drive.google.com/file/d/1QDok8LCtduRpiNaupw27OFMPu0OK3Oqc/view?usp=drive_link"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className={tw("px-8 py-3 rounded-full glass-effect border border-glassBorder font-semibold hover:bg-gradient-accent transition-all duration-300")}
+                            className={tw("apple-button")}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Download Résumé
+                            Download Resume
                         </m.a>
                         
                         <m.button
                             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                            className={tw("p-3 rounded-full glass-effect border border-glassBorder hover:bg-gradient-secondary transition-all duration-300")}
+                            className={tw("glass p-3 rounded-apple transition-all duration-200 hover:bg-accent hover:text-white")}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
+                            aria-label="Scroll to top"
                         >
-                            <FaArrowUp className={tw("text-xl")} />
+                            <ArrowUp className={tw("w-6 h-6")} />
                         </m.button>
                     </div>
                 </div>
 
-                <div className={tw("text-center pt-8 border-t border-glassBorder")}>
-                    <p className={tw("text-color-secondary opacity-70")}>
-                        © 2025 Gowtham Sree. Crafted with passion and code.
+                {/* Copyright */}
+                <div className={tw("text-center pt-8 border-t border-border")}>
+                    <p className={tw("text-textSecondary")}>
+                        © 2025 Gowtham Sree. Crafted with passion and precision.
                     </p>
                 </div>
             </div>

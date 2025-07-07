@@ -1,24 +1,24 @@
 import * as m from "motion/react-m"
 import { tw } from "../../twind/twind";
-import { FaHeart, FaRocket } from "react-icons/fa";
+import { Heart, Send } from "lucide-react";
 
 export default function LastSegment() {
     return (
-        <div className={tw("py-32 relative overflow-hidden")}>
-            <div className={tw("absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20")} />
-            
-            <m.div
-                className={tw("relative z-10 text-center px-8 max-w-4xl mx-auto")}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <div className={tw("flex justify-center mb-8")}>
+        <section className={tw("py-32 px-6 relative overflow-hidden")}>
+            <div className={tw("max-w-4xl mx-auto text-center")}>
+                <m.div
+                    className={tw("flex justify-center mb-8")}
+                    initial={{ scale: 0, rotate: -180 }}
+                    whileInView={{ scale: 1, rotate: 0 }}
+                    transition={{ 
+                        duration: 0.8,
+                        ease: [0.25, 0.46, 0.45, 0.94]
+                    }}
+                    viewport={{ once: true }}
+                >
                     <m.div
-                        className={tw("relative")}
                         animate={{ 
-                            scale: [1, 1.2, 1],
-                            rotate: [0, 10, -10, 0]
+                            scale: [1, 1.1, 1],
                         }}
                         transition={{ 
                             duration: 2,
@@ -26,37 +26,47 @@ export default function LastSegment() {
                             ease: "easeInOut"
                         }}
                     >
-                        <FaHeart className={tw("text-6xl text-red-400")} />
-                        <div className={tw("absolute inset-0 text-6xl text-red-400 animate-ping opacity-20")}>
-                            <FaHeart />
-                        </div>
+                        <Heart className={tw("w-16 h-16 text-red-400 fill-current")} />
                     </m.div>
-                </div>
+                </m.div>
 
-                <h1 className={tw("text-4xl md:text-6xl lg:text-7xl font-bold mb-6 gradient-text")}>
+                <m.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className={tw("text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-textPrimary smooth-text")}
+                >
                     Love at first sight.
-                </h1>
+                </m.h1>
                 
-                <p className={tw("text-xl md:text-2xl text-color-secondary mb-12 leading-relaxed")}>
+                <m.p
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    viewport={{ once: true }}
+                    className={tw("text-xl md:text-2xl text-textSecondary mb-12 leading-relaxed max-w-3xl mx-auto")}
+                >
                     Pouring passion and precision into every design to create
                     experiences that are visually captivating and intuitively engaging.
-                </p>
+                </m.p>
 
                 <m.a
                     href="mailto:iamgowthamsree@gmail.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={tw("inline-flex items-center gap-4 px-8 py-4 rounded-full glass-effect border-2 border-glassBorder text-xl font-semibold hover:bg-gradient-accent transition-all duration-300 group")}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                    className={tw("inline-flex items-center gap-3 apple-button text-lg group")}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                 >
-                    <FaRocket className={tw("text-2xl group-hover:animate-bounce")} />
+                    <Send className={tw("w-5 h-5 group-hover:translate-x-1 transition-transform duration-200")} />
                     <span>Say Hello!</span>
                 </m.a>
-            </m.div>
-        </div>
+            </div>
+        </section>
     );
 }
