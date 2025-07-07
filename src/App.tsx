@@ -3,11 +3,14 @@ import { tw } from "../twind/twind";
 import { LazyMotion, domAnimation, useScroll, useTransform } from "motion/react"
 import * as m from "motion/react-m"
 import ScrollLine from "./components/ScrollLine";
+import FloatingElements from "./components/FloatingElements";
+import CodeBackground from "./components/CodeBackground";
 
 const Paragraph = lazy(() => import("./components/Paragraph"));
 const Corner = lazy(() => import("./components/Corner"));
 const ServicesSection = lazy(() => import("./components/Skills"));
 const CommentSection = lazy(() => import("./components/CommentSection"));
+const ProjectsSection = lazy(() => import("./components/ProjectsSection"));
 const LastSegment = lazy(() => import("./components/LastSegment"));
 const Footer = lazy(() => import("./components/Footer"));
 const Icons = lazy(() => import("./components/Icons"));
@@ -16,13 +19,17 @@ function App() {
   const { scrollY } = useScroll();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Parallax effects
-  const heroParallax = useTransform(scrollY, [0, 1000], [0, -200]);
-  const iconsParallax = useTransform(scrollY, [0, 1000], [0, -100]);
+  // Advanced parallax effects
+  const heroParallax = useTransform(scrollY, [0, 1500], [0, -400]);
+  const iconsParallax = useTransform(scrollY, [0, 1000], [0, -200]);
+  const backgroundParallax = useTransform(scrollY, [0, 2000], [0, -300]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({ 
+        x: (e.clientX / window.innerWidth - 0.5) * 30,
+        y: (e.clientY / window.innerHeight - 0.5) * 30
+      });
     };
 
     window.addEventListener('mousemove', handleMouseMove);
@@ -32,31 +39,33 @@ function App() {
   return (
     <LazyMotion features={domAnimation} strict>
       <ScrollLine />
+      <FloatingElements />
+      <CodeBackground parallax={backgroundParallax} />
       
       {/* Custom cursor */}
       <m.div
-        className={tw("fixed w-4 h-4 bg-accent rounded-full pointer-events-none z-50 mix-blend-difference")}
+        className={tw("fixed w-6 h-6 bg-accent rounded-full pointer-events-none z-50 mix-blend-difference")}
         animate={{
-          x: mousePosition.x - 8,
-          y: mousePosition.y - 8,
+          x: mousePosition.x / 2 + (typeof window !== 'undefined' ? window.innerWidth / 2 : 0) - 12,
+          y: mousePosition.y / 2 + (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) - 12,
         }}
         transition={{
           type: "spring",
-          stiffness: 500,
-          damping: 28,
-          mass: 0.5,
+          stiffness: 300,
+          damping: 20,
+          mass: 0.3,
         }}
       />
 
-      <main className={tw("min-h-screen bg-background")}>
+      <main className={tw("min-h-screen bg-background relative")}>
         {/* Navigation */}
         <header className={tw("fixed top-0 w-full z-40 glass-nav")}>
           <div className={tw("max-w-7xl mx-auto px-6 py-4 flex justify-between items-center")}>
             <m.h1
-              className={tw("text-xl font-semibold text-textPrimary")}
-              initial={{ opacity: 0, x: -20 }}
+              className={tw("text-xl font-bold text-textPrimary")}
+              initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
               Gowtham Sree
             </m.h1>
@@ -64,11 +73,15 @@ function App() {
             <div className={tw("flex items-center gap-8")}>
               <m.div
                 className={tw("hidden md:flex items-center gap-4 text-sm text-textSecondary")}
-                initial={{ opacity: 0, y: -10 }}
+                initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <div className={tw("w-2 h-2 bg-green-400 rounded-full animate-pulse")} />
+                <m.div 
+                  className={tw("w-2 h-2 bg-green-400 rounded-full")}
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
                 <span>Ananthapur, India</span>
                 <span>•</span>
                 <span>
@@ -86,10 +99,10 @@ function App() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className={tw("apple-button")}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Resume
@@ -98,45 +111,65 @@ function App() {
           </div>
         </header>
 
-        {/* Hero Section */}
+        {/* Hero Section with Creative Entrance */}
         <section className={tw("min-h-screen flex items-center justify-center relative overflow-hidden")}>
           <m.div
-            style={{ y: heroParallax }}
+            style={{ 
+              y: heroParallax,
+              x: mousePosition.x * 0.1,
+            }}
             className={tw("text-center z-10 px-6 smooth-transform")}
           >
             <m.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <p className={tw("text-xl md:text-2xl text-textSecondary mb-6 smooth-text")}>
+              <m.p 
+                className={tw("text-xl md:text-2xl text-textSecondary mb-8 smooth-text")}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+              >
                 Hello, I'm Gowtham and I'm a
-              </p>
+              </m.p>
               
-              <div className={tw("flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 mb-8")}>
+              <div className={tw("flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 mb-12")}>
                 <m.h1
-                  className={tw("text-6xl md:text-8xl lg:text-9xl font-bold text-textPrimary smooth-text")}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className={tw("text-7xl md:text-9xl lg:text-[12rem] font-black text-textPrimary smooth-text hero-text")}
+                  initial={{ opacity: 0, rotateX: 90 }}
+                  animate={{ opacity: 1, rotateX: 0 }}
+                  transition={{ duration: 1.5, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   Designer
                 </m.h1>
                 
                 <m.div
-                  className={tw("text-4xl floating")}
-                  initial={{ opacity: 0, rotate: -180 }}
-                  animate={{ opacity: 1, rotate: 0 }}
-                  transition={{ duration: 1.2, delay: 1.2 }}
+                  className={tw("text-6xl md:text-8xl")}
+                  initial={{ opacity: 0, rotate: -360, scale: 0 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  transition={{ duration: 2, delay: 2.2, type: "spring", stiffness: 100 }}
                 >
-                  ✦
+                  <m.div
+                    animate={{ 
+                      rotate: [0, 360],
+                      scale: [1, 1.1, 1]
+                    }}
+                    transition={{ 
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  >
+                    ✦
+                  </m.div>
                 </m.div>
                 
                 <m.h1
-                  className={tw("text-6xl md:text-8xl lg:text-9xl font-bold text-gradient smooth-text")}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, delay: 1.4, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className={tw("text-7xl md:text-9xl lg:text-[12rem] font-black text-gradient smooth-text hero-text")}
+                  initial={{ opacity: 0, rotateX: -90 }}
+                  animate={{ opacity: 1, rotateX: 0 }}
+                  transition={{ duration: 1.5, delay: 2.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                 >
                   Developer
                 </m.h1>
@@ -144,49 +177,81 @@ function App() {
             </m.div>
           </m.div>
           
-          {/* Floating Icons */}
+          {/* Creative Floating Icons */}
           <Suspense fallback={null}>
-            <m.div style={{ y: iconsParallax }} className={tw("smooth-transform")}>
+            <m.div 
+              style={{ 
+                y: iconsParallax,
+                x: mousePosition.x * 0.05,
+              }} 
+              className={tw("smooth-transform")}
+            >
               <Icons />
             </m.div>
           </Suspense>
           
-          {/* Hero Image */}
+          {/* Hero Image with Creative Animation */}
           <div className={tw("absolute bottom-0 w-full flex justify-center")}>
             <m.img
               src="/marban.png"
               alt="Profile"
-              className={tw("h-96 md:h-[500px] lg:h-[600px] object-contain floating smooth-transform")}
-              initial={{ opacity: 0, y: 100 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className={tw("h-96 md:h-[500px] lg:h-[650px] object-contain smooth-transform")}
+              initial={{ opacity: 0, y: 200, scale: 0.8 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{ duration: 2, delay: 3.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              style={{
+                filter: "drop-shadow(0 20px 40px rgba(0, 122, 255, 0.3))"
+              }}
             />
           </div>
         </section>
 
         {/* About Section */}
-        <section className={tw("py-32 px-6 max-w-6xl mx-auto")}>
-          <div className={tw("glass p-8 md:p-12 relative")}>
+        <section className={tw("py-32 px-6 max-w-6xl mx-auto relative")}>
+          <div className={tw("glass p-8 md:p-16 relative overflow-hidden")}>
             <Corner />
             <Paragraph
-              text="I am Gowtham Sree Charan Reddy, currently pursuing CSE with AIML at SRMIST. I love developing and designing digital experiences that make a difference. My journey in tech is just beginning, and I'm excited to learn, grow, and create amazing projects that impact people's lives."
+              text="I am Gowtham Sree Charan Reddy, currently pursuing CSE with AIML at SRMIST. I love developing and designing digital experiences that make a difference. My journey in tech is just beginning, and I'm excited to learn, grow, and create amazing projects that impact people's lives. Every line of code I write is a step towards building something extraordinary."
             />
           </div>
         </section>
 
         {/* Skills Section */}
-        <section className={tw("py-24 px-6 max-w-7xl mx-auto")}>
+        <section className={tw("py-32 px-6 max-w-7xl mx-auto")}>
+          <m.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className={tw("text-5xl md:text-7xl font-bold text-center mb-20 text-textPrimary smooth-text")}
+          >
+            Skills & <span className={tw("text-gradient")}>Expertise</span>
+          </m.h2>
           <ServicesSection />
         </section>
 
-        {/* Testimonials */}
-        <section className={tw("py-32")}>
+        {/* Projects Section */}
+        <section className={tw("py-32 px-6 max-w-7xl mx-auto")}>
+          <m.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className={tw("text-5xl md:text-7xl font-bold text-center mb-20 text-textPrimary smooth-text")}
+          >
+            Featured <span className={tw("text-gradient")}>Projects</span>
+          </m.h2>
+          <ProjectsSection />
+        </section>
+
+        {/* Testimonials with Slicing Animation */}
+        <section className={tw("py-32 relative overflow-hidden")}>
           <m.h1
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             viewport={{ once: true }}
-            className={tw("text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-20 text-textPrimary smooth-text")}
+            className={tw("text-5xl md:text-7xl lg:text-8xl font-bold text-center mb-32 text-textPrimary smooth-text")}
           >
             What people say about my{" "}
             <span className={tw("text-gradient")}>work</span>

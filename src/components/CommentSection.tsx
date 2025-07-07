@@ -2,23 +2,24 @@ import Comments from "./Comments"
 import { useState, useEffect } from "react";
 import { tw } from "../../twind/twind";
 import * as m from "motion/react-m";
+import { useScroll, useTransform } from "motion/react";
 
 const comments = [
     {
         name: "Prasanna Kumar Reddy",
-        comment: "Gowtham has an incredible eye for design and the technical skills to bring his visions to life. His work always exceeds expectations.",
+        comment: "Gowtham has an incredible eye for design and the technical skills to bring his visions to life. His work always exceeds expectations and delivers outstanding results.",
         title: "Student at SRM",
         image: "/testimonials/rachit.jpg"
     },
     {
         name: "Guna Adhityya Reddy",
-        comment: "Working with Gowtham has been amazing. His creativity and dedication to perfection make him stand out from the crowd.",
+        comment: "Working with Gowtham has been amazing. His creativity and dedication to perfection make him stand out from the crowd. A true professional in every sense.",
         title: "Student at NIE Mysore",
         image: "/testimonials/adi.jpg"
     },
     {
         name: "Dheeraj",
-        comment: "Gowtham's approach to problem-solving is unique. He combines technical expertise with creative thinking to deliver outstanding results.",
+        comment: "Gowtham's approach to problem-solving is unique. He combines technical expertise with creative thinking to deliver outstanding results that exceed expectations.",
         title: "Student at SRM",
         image: "/testimonials/Dheeraj.jpg"
     },
@@ -65,30 +66,55 @@ export const LazyImage = ({ src, alt, className }: { src: string, alt: string, c
 };
 
 export default function CommentSection() {
+    const { scrollY } = useScroll();
+
     return (
-        <div className={tw("max-w-4xl mx-auto px-6")}>
-            <div className={tw("space-y-8")}>
-                {comments.map((comment, index) => (
-                    <m.div
-                        key={index}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ 
-                            duration: 0.6, 
-                            delay: index * 0.1,
-                            ease: [0.25, 0.46, 0.45, 0.94]
-                        }}
-                        viewport={{ once: true, amount: 0.3 }}
-                    >
-                        <Comments
-                            index={index}
-                            name={comment.name}
-                            comment={comment.comment}
-                            image={comment.image || ""}
-                            title={comment.title}
-                        />
-                    </m.div>
-                ))}
+        <div className={tw("max-w-4xl mx-auto px-6 relative")}>
+            {/* Stacked cards with slicing animation */}
+            <div className={tw("relative h-[400vh]")}>
+                {comments.map((comment, index) => {
+                    const targetScale = 1 - ((comments.length - index) * 0.05);
+                    const targetY = index * -60;
+                    
+                    return (
+                        <m.div
+                            key={index}
+                            className={tw("sticky top-32 mb-8")}
+                            style={{
+                                scale: useTransform(
+                                    scrollY,
+                                    [index * 400, (index + 1) * 400],
+                                    [1, targetScale]
+                                ),
+                                y: useTransform(
+                                    scrollY,
+                                    [index * 400, (index + 1) * 400],
+                                    [0, targetY]
+                                ),
+                                zIndex: comments.length - index,
+                            }}
+                        >
+                            <m.div
+                                initial={{ opacity: 0, y: 100 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ 
+                                    duration: 0.8, 
+                                    delay: index * 0.1,
+                                    ease: [0.25, 0.46, 0.45, 0.94]
+                                }}
+                                viewport={{ once: true, amount: 0.3 }}
+                            >
+                                <Comments
+                                    index={index}
+                                    name={comment.name}
+                                    comment={comment.comment}
+                                    image={comment.image || ""}
+                                    title={comment.title}
+                                />
+                            </m.div>
+                        </m.div>
+                    );
+                })}
             </div>
         </div>
     )
