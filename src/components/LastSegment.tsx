@@ -1,98 +1,62 @@
 import * as m from "motion/react-m"
 import { tw } from "../../twind/twind";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaRocket } from "react-icons/fa";
 
 export default function LastSegment() {
     return (
-        <m.div
-            className={tw(
-                "py-32 h-screen flex-col top-0 flex gap-12 items-center justify-center",
-            )}
-        >
-            <div
-                className={tw(
-                    "flex flex-col gap-4 items-center justify-center",
-                )}
+        <div className={tw("py-32 relative overflow-hidden")}>
+            <div className={tw("absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-blue-500/20")} />
+            
+            <m.div
+                className={tw("relative z-10 text-center px-8 max-w-4xl mx-auto")}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
             >
-                <m.div
-                    className={tw("flex items-center justify-center")}
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    style={{
-                        willChange: "transform",
-                    }}
-                    transition={{
-                        duration: 0.5,
-                        ease: [0.25, 0.8, 0.25, 1],
-                    }}
-                >
-                    <FaHeart className={tw("text-red text-5xl")} />
-                </m.div>
-                <m.h1
-                    initial={{ opacity: 0, filter: "blur(10px)" }}
-                    whileInView={{ opacity: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, filter: "blur(10px)" }}
-                    style={{
-                        willChange: "opacity, filter",
-                    }}
-                    transition={{
-                        duration: 1,
-                        delay: 0.3,
-                        ease: [0.25, 0.8, 0.25, 1],
-                    }}
-                    className={tw(
-                        "text-4xl font-semibold text-center md:text-5xl mt-4",
-                    )}
-                >
+                <div className={tw("flex justify-center mb-8")}>
+                    <m.div
+                        className={tw("relative")}
+                        animate={{ 
+                            scale: [1, 1.2, 1],
+                            rotate: [0, 10, -10, 0]
+                        }}
+                        transition={{ 
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                    >
+                        <FaHeart className={tw("text-6xl text-red-400")} />
+                        <div className={tw("absolute inset-0 text-6xl text-red-400 animate-ping opacity-20")}>
+                            <FaHeart />
+                        </div>
+                    </m.div>
+                </div>
+
+                <h1 className={tw("text-4xl md:text-6xl lg:text-7xl font-bold mb-6 gradient-text")}>
                     Love at first sight.
-                </m.h1>
-                <m.p
-                    initial={{ opacity: 0, filter: "blur(10px)" }}
-                    whileInView={{ opacity: 0.4, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, filter: "blur(10px)" }}
-                    transition={{
-                        duration: 1,
-                        delay: 0.5,
-                        ease: [0.25, 0.8, 0.25, 1],
-                    }}
-                    className={tw(
-                        "text-center max-w-[600px] w-[80vw] md:w-full text-sm md:text-base",
-                    )}
-                >
+                </h1>
+                
+                <p className={tw("text-xl md:text-2xl text-color-secondary mb-12 leading-relaxed")}>
                     Pouring passion and precision into every design to create
-                    experiences that are visually captivating and intuitively
-                    engaging.
-                </m.p>
-            </div>
-            <m.a
-                href="mailto:iamgowthamsree@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className={tw(
-                    "text-red flex w-fit items-center px-8 gap-4 text-xl py-3 rounded-full bg-transparent border-2 border-red",
-                )}
-                whileHover={{
-                    scale: 0.95,
-                    backgroundColor: "var(--red)",
-                    color: "var(--background)",
-                }}
-                whileTap={{
-                    scale: 0.95,
-                    backgroundColor: "var(--red)",
-                    color: "var(--background)",
-                }}
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1, transition: { delay: 1 } }}
-                transition={{
-                    type: "spring",
-                    stiffness: 400,
-                    damping: 17,
-                }}
-            >
-                <span className={tw("font-semibold")}>
-                    Say Hello!
-                </span>
-            </m.a>
-        </m.div>
+                    experiences that are visually captivating and intuitively engaging.
+                </p>
+
+                <m.a
+                    href="mailto:iamgowthamsree@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={tw("inline-flex items-center gap-4 px-8 py-4 rounded-full glass-effect border-2 border-glassBorder text-xl font-semibold hover:bg-gradient-accent transition-all duration-300 group")}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                    <FaRocket className={tw("text-2xl group-hover:animate-bounce")} />
+                    <span>Say Hello!</span>
+                </m.a>
+            </m.div>
+        </div>
     );
 }

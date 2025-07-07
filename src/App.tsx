@@ -11,7 +11,6 @@ const ServicesSection = lazy(() => import("./components/Skills"));
 const CommentSection = lazy(() => import("./components/CommentSection"));
 const LastSegment = lazy(() => import("./components/LastSegment"));
 const Footer = lazy(() => import("./components/Footer"));
-
 const Icons = lazy(() => import("./components/Icons"));
 
 function App() {
@@ -20,217 +19,150 @@ function App() {
 
   useEffect(() => {
     return scrollY.on("change", (latest) => {
-      setBgPosition(`center ${latest * -0.4}px`);
+      setBgPosition(`center ${latest * -0.2}px`);
     });
   }, [scrollY]);
 
   return (
     <LazyMotion features={domAnimation} strict>
+      <div className="mesh-gradient" />
       <ScrollLine />
-      <main className={tw("min-h-screen")}>
-        <header className={tw("flex sticky top-0 justify-between items-center p-4 px-8")}>
-          <div className="nav-blur">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-          <m.h1
-            className={tw("text-lg md:text-xl font-semibold text-center")}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            style={{
-              color: useScroll().scrollYProgress.get() > 0.997 ? "var(--background)" : "var(--color)",
-              transition: "color 0.3s ease",
-              willChange: "opacity",
-            }}
-            transition={{ duration: 0.4, ease: [0.645, 0.045, 0.355, 1] }}
-          >
-            [Gowtham sree.]
-          </m.h1>
-          <div className="flex items-center gap-4">
-            <m.div
-              className={tw("text-xs md:text-sm hidden text-right md:flex items-center gap-1")}
-              animate={{ x: useScroll().scrollYProgress.get() > 0.95 ? 100 : 0 }}
-              style={{
-                willChange: "transform",
-              }}
-              transition={{ duration: 0.3, delay: useScroll().scrollYProgress.get() > 0.95 ? 0.2 : 0, ease: [0.645, 0.045, 0.355, 1] }}
+      <main className={tw("min-h-screen relative")}>
+        <header className={tw("fixed top-0 w-full z-50 glass-effect border-b border-glassBorder")}>
+          <div className={tw("flex justify-between items-center p-6 px-8 max-w-7xl mx-auto")}>
+            <m.h1
+              className={tw("text-xl font-bold gradient-text")}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: [0.645, 0.045, 0.355, 1] }}
             >
-              <p 
-                style={{
-                  color: useScroll().scrollYProgress.get() > 0.997 ? "var(--background)" : "var(--color)",
-                  transition: "color 0.3s ease",
-                }}
+              [Gowtham sree.]
+            </m.h1>
+            
+            <div className={tw("flex items-center gap-6")}>
+              <m.div
+                className={tw("hidden md:flex items-center gap-3 text-sm")}
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Ananthapur, India
-              </p>
-              <span
-                className={tw("h-1 w-1 rounded-full mx-3")}
-                style={{
-                  background: useScroll().scrollYProgress.get() > 0.997 ? "var(--background)" : "var(--color)",
-                  transition: "color 0.3s ease",
-                }}
-              />
-              <p
-                style={{
-                  color: useScroll().scrollYProgress.get() > 0.997 ? "var(--background)" : "var(--color)",
-                  transition: "color 0.3s ease",
-                }}
-              >
-                {new Date().toLocaleTimeString("en-US", {
-                  timeZone: "Asia/Kolkata",
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: false,
-                })}
-              </p>
-            </m.div>
-            <div>
+                <div className={tw("w-2 h-2 rounded-full bg-gradient-accent animate-pulse")} />
+                <span className={tw("text-color-secondary")}>Ananthapur, India</span>
+                <span className={tw("text-color-secondary")}>•</span>
+                <span className={tw("text-color-secondary")}>
+                  {new Date().toLocaleTimeString("en-US", {
+                    timeZone: "Asia/Kolkata",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: false,
+                  })}
+                </span>
+              </m.div>
+              
               <m.a
                 href="https://drive.google.com/file/d/1QDok8LCtduRpiNaupw27OFMPu0OK3Oqc/view?usp=drive_link"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={tw("md:border-l p-0 border-color md:py-1 md:px-4 font-semibold cursor-pointer")}
-                initial={{
-                  background: "#00000000",
-                  color: "var(--color)",
-                  opacity: 0.9,
-                }}
-                style={{
-                  willChange: "transform, opacity",
-                }}
-                animate={{
-                  x: useScroll().scrollYProgress.get() > 0.95 ? 100 : 0,
-                  opacity: useScroll().scrollYProgress.get() > 0.95 ? 0 : 1,
-                }}
-                transition={{ duration: 0.3 }}
+                className={tw("px-6 py-2 rounded-full glass-effect border border-glassBorder font-semibold hover:bg-gradient-accent transition-all duration-300 hover:scale-105")}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 Résumé
               </m.a>
             </div>
           </div>
         </header>
-        <m.div style={{ backgroundPosition: bgPosition, willChange: "background" }} className="parallax-background" />
-        <section className={tw("flex justify-center items-center flex-col py-16 md:py-32 px-4 md:px-8")}>
-          <div>
-            <m.h3
-              className={tw("text-lg md:text-xl lg:text-2xl")}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              style={{
-                willChange: "opacity",
-              }}
-              transition={{
-                duration: 0.4,
-                delay: 0.4,
-                ease: [0.645, 0.045, 0.355, 1],
-              }}
+
+        <section className={tw("min-h-screen flex items-center justify-center relative pt-20")}>
+          <div className={tw("text-center z-10 px-4")}>
+            <m.div
+              className={tw("mb-8")}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
             >
-              I am Gowtham and I am a
-            </m.h3>
-            <h1 className={tw(`flex items-start justify-start flex-col md:!flex-row md:!items-center md:!justify-center gap-2 w-[70vw] md:!w-auto min-w-[300px] md:!gap-8`)}>
-              <m.span
-                className={tw(`text-4xl md:text-6xl lg:text-8xl font-bold`)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                style={{
-                  willChange: "opacity",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 0.8,
-                  ease: [0.645, 0.045, 0.355, 1],
-                }}
-              >
-                Designer{" "}
-              </m.span>
-              <m.div
-                className={tw("mt-2 hidden md:!block")}
-                initial={{ rotate: 0, opacity: 0 }}
-                animate={{ rotate: 360, opacity: 1 }}
-                style={{
-                  willChange: "transform, opacity",
-                }}
-                transition={{
-                  duration: 1,
-                  delay: 1,
-                  ease: [0.645, 0.045, 0.355, 1],
-                }}
-              >
-                <StarSVG className="text-2xl md:text-3xl lg:text-4xl text-color" />
-              </m.div>{" "}
-              <m.span
-                className={tw(`text-4xl md:text-6xl lg:text-8xl font-bold before:(content-["&"] inline-block mr-2 md:hidden text-color)`)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                style={{
-                  willChange: "opacity",
-                }}
-                transition={{
-                  duration: 0.4,
-                  delay: 1.2,
-                  ease: [0.645, 0.045, 0.355, 1],
-                }}
-              >
-                Developer
-              </m.span>
-            </h1>
+              <h3 className={tw("text-xl md:text-2xl mb-4 text-color-secondary")}>
+                Hello, I am Gowtham and I am a
+              </h3>
+              
+              <div className={tw("flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8")}>
+                <m.h1
+                  className={tw("text-6xl md:text-8xl lg:text-9xl font-bold gradient-text")}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                >
+                  Designer
+                </m.h1>
+                
+                <m.div
+                  className={tw("hidden md:block")}
+                  initial={{ rotate: 0, opacity: 0 }}
+                  animate={{ rotate: 360, opacity: 1 }}
+                  transition={{ duration: 2, delay: 1.2 }}
+                >
+                  <StarSVG className={tw("text-4xl lg:text-6xl text-accent floating-animation")} />
+                </m.div>
+                
+                <m.h1
+                  className={tw("text-6xl md:text-8xl lg:text-9xl font-bold text-shimmer")}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, delay: 1.4 }}
+                >
+                  Developer
+                </m.h1>
+              </div>
+            </m.div>
+          </div>
+          
+          <Suspense fallback={<div>Loading...</div>}>
+            <Icons />
+          </Suspense>
+          
+          <div className={tw("absolute bottom-0 w-full flex justify-center")}>
+            <m.img
+              src="/marban.png"
+              alt="Marban"
+              className={tw("h-96 md:h-[500px] lg:h-[600px] object-contain floating-animation")}
+              initial={{ opacity: 0, y: 100 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 1.6 }}
+            />
           </div>
         </section>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Icons />
-        </Suspense>
-        <div className={tw("absolute h-[450px] md:h-[650px] lg:h-[700px] bottom-0 w-full items-center justify-center flex")}>
-          <m.img
-            loading="eager"
-            id="marban"
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            style={{
-              willChange: "transform, opacity",
-            }}
-            transition={{
-              duration: 0.7,
-              delay: 1.2,
-              ease: [0.645, 0.045, 0.355, 1],
-            }}
-            src="/marban.png"
-            className={tw("h-[450px] mb-32 md:!mb-0 md:h-[650px] lg:h-[700px] ml-12 object-contain")}
-            alt="Marban"
-          />
-        </div>
-        <div className={tw("lg:py-36 relative flex items-center justify-center py-24 px-12 max-w-screen-xl mx-auto w-full h-screen")}>
+
+        <div className={tw("relative py-32 px-8 max-w-6xl mx-auto")}>
           <Corner />
-          <Paragraph
-            text={`I am Gowtham sree charan reddy, currently pursuing CSE with AIML at SRMIST.I love devolping and designing but the actual problem occured when it comes to these type of projects is skills,I am learning more skills to devolop and design `}
-          />
+          <div className={tw("glass-effect rounded-3xl p-8 md:p-12")}>
+            <Paragraph
+              text={`I am Gowtham sree charan reddy, currently pursuing CSE with AIML at SRMIST. I love developing and designing but the actual problem occurred when it comes to these type of projects is skills. I am learning more skills to develop and design amazing experiences.`}
+            />
+          </div>
         </div>
-        <div className={tw("max-w-screen-xl mx-12 px-4 md:px-12 lg:!mx-auto py-16 mb-6 md:!mb-24 min-h-screen flex flex-col md:!flex-row items-start justify-between gap-6")}>
+
+        <div className={tw("max-w-7xl mx-auto px-8 py-24")}>
           <ServicesSection />
         </div>
-        <div className={tw("pt-32 min-h-screen")}>
+
+        <div className={tw("py-32")}>
           <m.h1
-            initial={{ opacity: 0, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, filter: "blur(0px)" }}
-            exit={{ opacity: 0, filter: "blur(10px)" }}
-            style={{
-              willChange: "opacity, filter",
-            }}
-            transition={{
-              duration: 1,
-              delay: 0.3,
-              ease: [0.25, 0.8, 0.25, 1],
-            }}
-            className={tw("font-semibold w-fit mx-auto text-(lg:6xl md:5xl 4xl) text-center sticky top-32")}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className={tw("text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-20 gradient-text")}
           >
-            People around here<br />loves my{" "}
-            <div className={tw("px-1 pr-3 inline-block italic rounded-lg bg-color text-background")}>
+            People around here<br />love my{" "}
+            <span className={tw("inline-block px-4 py-2 rounded-2xl glass-effect border border-glassBorder neon-glow")}>
               work
-            </div>
+            </span>
           </m.h1>
           <CommentSection />
         </div>
+
         <LastSegment />
         <Footer />
       </main>

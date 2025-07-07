@@ -1,42 +1,27 @@
 import React from 'react';
-import {  useScroll, useTransform } from 'framer-motion';
+import { useScroll, useTransform } from 'motion/react';
 import * as m from "motion/react-m"
+import { tw } from "../../twind/twind";
 
 const ScrollLine: React.FC = () => {
   const { scrollYProgress } = useScroll();
   const height = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-  const backgroundColor = useTransform(
-    scrollYProgress,
-    [0, 0.95, 1],
-    ['var(--color)', 'var(--color-light)', 'var(--color)']
-  );
-  const width = useTransform(scrollYProgress, [0, 1], ['2px', '4px']);
+  const width = useTransform(scrollYProgress, [0, 1], ['3px', '6px']);
 
   return (
-    <m.div
-      style={{
-        position: 'fixed',
-        top: 0,
-        right: '0px',
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'flex-start',
-        zIndex: 50,
-      }}
-    >
+    <div className={tw("fixed top-0 right-4 h-full flex items-start z-50")}>
       <m.div
         style={{
-          height: height.get(),
-          width: width.get(),
-          backgroundColor: backgroundColor.get(),
-          willChange: 'height, background, width',
+          height,
+          width,
+          background: 'linear-gradient(135deg, #ff6b6b 0%, #feca57 100%)',
         }}
-        className="rounded-full"
+        className={tw("rounded-full shadow-glow")}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       />
-    </m.div>
+    </div>
   );
 };
 

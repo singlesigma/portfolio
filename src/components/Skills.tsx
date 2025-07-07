@@ -1,44 +1,26 @@
 import { FC, useEffect, useRef, useState } from "react";
-import {
-    AnimatePresence,
-    cubicBezier,
-    useScroll,
-    useTransform,
-} from "motion/react";
+import { AnimatePresence, useScroll, useTransform } from "motion/react";
 import * as m from "motion/react-m"
-
 import { tw } from "../../twind/twind";
 
 const skillsData = [
     {
         type: "Languages",
-        items: [
-            "Python",
-            "C",
-            "Java",
-            "C++",
-        ],
+        items: ["Python", "C", "Java", "C++"],
+        icon: "💻",
+        color: "from-blue-400 to-purple-600"
     },
     {
         type: "Frameworks",
-        items: [
-           "i am",
-            "learning",
-            "Frame works",
-            "it",
-            "Takes",
-            "time",
-            "to learn",
-        ],
+        items: ["React", "Node.js", "Express", "MongoDB", "Learning More..."],
+        icon: "🚀",
+        color: "from-green-400 to-blue-500"
     },
     {
         type: "Tools",
-        items: [
-            "VS Code",
-            "GitHub",
-            "Figma",
-            "MongoDB",
-        ],
+        items: ["VS Code", "GitHub", "Figma", "MongoDB"],
+        icon: "🛠️",
+        color: "from-orange-400 to-red-500"
     },
 ];
 
@@ -50,10 +32,7 @@ const SkillsSection: FC = () => {
         sectionRefs.current.forEach((ref, index) => {
             if (ref) {
                 const rect = ref.getBoundingClientRect();
-                if (
-                    rect.top < window.innerHeight * 0.4 &&
-                    rect.bottom > window.innerHeight * 0.3
-                ) {
+                if (rect.top < window.innerHeight * 0.5 && rect.bottom > window.innerHeight * 0.3) {
                     setCurrentSection(index);
                 }
             }
@@ -66,124 +45,86 @@ const SkillsSection: FC = () => {
     }, []);
 
     return (
-        <>
-            <div
-                className={tw(
-                    "md:sticky h-full min-h-[78vh] hidden md:flex justify-between flex-col md:block bg-transparent top-28 min-w-[40%]",
-                )}
-            >
-                <div>
-                    <h2 className={tw("text-xl font-semibold opacity-70 mb-2")}>
-                        Skills
-                    </h2>
-                    <AnimatePresence mode="wait">
-                        <m.h1
-                            key={currentSection}
-                            initial={{ opacity: 0, filter: "blur(10px)" }}
-                            animate={{ opacity: 1, filter: "blur(0px)" }}
-                            exit={{ opacity: 0, filter: "blur(10px)" }}
-                            transition={{
-                                duration: 0.5,
-                                ease: [0.25, 0.8, 0.25, 1],
-                            }}
-                            className={tw(
-                                "inline-block font-semibold text-6xl font-semibold",
-                            )}
-                        >
-                            {skillsData[currentSection]?.type ||
-                                "Skills Overview"}
-                        </m.h1>
-                    </AnimatePresence>
-                    <p
-                        className={tw(
-                            "opacity-40 text-color text-base mt-3 max-w-[400px]",
-                        )}
+        <div className={tw("grid md:grid-cols-2 gap-12 items-start")}>
+            <div className={tw("sticky top-32 glass-effect rounded-3xl p-8")}>
+                <h2 className={tw("text-lg font-semibold opacity-70 mb-4")}>Skills & Expertise</h2>
+                
+                <AnimatePresence mode="wait">
+                    <m.div
+                        key={currentSection}
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 50 }}
+                        transition={{ duration: 0.5 }}
+                        className={tw("mb-6")}
                     >
-                        With 6 months in tech,i haven't done no projects in 2024 and in this year
-                        "2025",gonna be huge task to me to learn build projects.
-                    </p>
-                </div>
+                        <div className={tw("text-6xl mb-4")}>
+                            {skillsData[currentSection]?.icon}
+                        </div>
+                        <h1 className={tw(`text-5xl font-bold bg-gradient-to-r ${skillsData[currentSection]?.color} bg-clip-text text-transparent`)}>
+                            {skillsData[currentSection]?.type || "Skills Overview"}
+                        </h1>
+                    </m.div>
+                </AnimatePresence>
+                
+                <p className={tw("text-color-secondary text-lg leading-relaxed")}>
+                    With 6 months in tech, I'm rapidly expanding my skillset. 2025 is going to be a huge year for learning and building amazing projects.
+                </p>
             </div>
 
-            <div
-                className={tw(
-                    "border-l-2 sticky opacity-70 hidden lg:flex border-color h-screen md:top-0",
-                )}
-            />
-
-            <div className="min-w-[40%] md:pb-48 w-full md:!w-fit">
+            <div className={tw("space-y-12")}>
                 {skillsData.map((section, sectionIndex) => (
                     <div
                         key={sectionIndex}
-                        ref={(
-                            el,
-                        ) => (sectionRefs.current[sectionIndex] =
-                            el as HTMLDivElement)}
-                        className={tw(
-                            `flex flex-col gap-12 mt-10 pb-12 w-full ${
-                                sectionIndex !== skillsData?.length - 1 &&
-                                "border-b border-color"
-                            }`,
-                        )}
+                        ref={(el) => (sectionRefs.current[sectionIndex] = el as HTMLDivElement)}
+                        className={tw("glass-effect rounded-3xl p-8 card-hover")}
                     >
-                        <div
-                            className={tw(
-                                "md:hidden block bg-transparent min-w-[40%]",
-                            )}
-                        >
-                            <h2
-                                className={tw(
-                                    "text-xl font-semibold opacity-70 mb-2",
-                                )}
-                            >
-                                Skills
-                            </h2>
-                            <h1 className={tw("text-4xl font-semibold")}>
+                        <div className={tw("flex items-center gap-4 mb-6")}>
+                            <div className={tw("text-4xl")}>{section.icon}</div>
+                            <h2 className={tw(`text-3xl font-bold bg-gradient-to-r ${section.color} bg-clip-text text-transparent`)}>
                                 {section.type}
-                            </h1>
+                            </h2>
                         </div>
-
-                        <div className={tw("flex overflow-scroll flex-col gap-3 md:gap-6")}>
+                        
+                        <div className={tw("grid grid-cols-2 gap-4")}>
                             {section.items.map((item, itemIndex) => (
                                 <SkillItem
                                     key={`${sectionIndex}-${itemIndex}`}
                                     item={item}
                                     index={itemIndex}
+                                    color={section.color}
                                 />
                             ))}
                         </div>
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
-const SkillItem: FC<{ item: string; index: number }> = ({ item }) => {
+const SkillItem: FC<{ item: string; index: number; color: string }> = ({ item, index, color }) => {
     const ref = useRef<HTMLDivElement>(null);
-
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ["start 90vh", "end 20vh"],
     });
 
-    const x = useTransform(
-        scrollYProgress,
-        [0, 1],
-        [window.innerWidth <= 768 ? 100 : 300, 0],
-        {
-            ease: cubicBezier(0.645, 0.045, 0.355, 1),
-        }
-    );
-    const opacity = useTransform(scrollYProgress, [0, 0.1, 1], [0, 0, 1]);
+    const x = useTransform(scrollYProgress, [0, 1], [100, 0]);
+    const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.5, 1]);
 
     return (
         <m.div
             ref={ref}
-            style={{ x: x.get(), opacity: opacity.get(), willChange: "transform, opacity" }}
-            className={tw("text-2xl md:text-2xl xl:text-3xl text-color w-fit font-semibold")}
+            style={{ x, opacity }}
+            className={tw("glass-effect rounded-xl p-4 border border-glassBorder hover:scale-105 transition-transform duration-300")}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
         >
-            {item}
+            <span className={tw(`text-lg font-semibold bg-gradient-to-r ${color} bg-clip-text text-transparent`)}>
+                {item}
+            </span>
         </m.div>
     );
 };

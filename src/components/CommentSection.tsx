@@ -1,6 +1,7 @@
 import Comments from "./Comments"
-
 import { useState, useEffect } from "react";
+import { tw } from "../../twind/twind";
+import * as m from "motion/react-m";
 
 const comments = [
     {
@@ -58,26 +59,33 @@ export const LazyImage = ({ src, alt, className }: { src: string, alt: string, c
         <img
             src={loaded ? imageSrc : "placeholder.jpg"}
             alt={alt}
-            className={`transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"} ${className}`}
+            className={`transition-all duration-500 ${loaded ? "opacity-100 scale-100" : "opacity-0 scale-95"} ${className}`}
         />
     );
 };
 
 export default function CommentSection() {
     return (
-        <div className="max-w-screen-xl px-4 mx-auto flex flex-col mt-40 gap-48 items-center justify-center relative min-h-screen">
-            {
-                comments.map((comment, index) => (
-                    <Comments
+        <div className={tw("max-w-4xl mx-auto px-4")}>
+            <div className={tw("space-y-8")}>
+                {comments.map((comment, index) => (
+                    <m.div
                         key={index}
-                        index={index}
-                        name={comment.name}
-                        comment={comment.comment}
-                        image={comment.image || ""}
-                        title={comment.title}
-                    />
-                ))
-            }
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true, amount: 0.3 }}
+                    >
+                        <Comments
+                            index={index}
+                            name={comment.name}
+                            comment={comment.comment}
+                            image={comment.image || ""}
+                            title={comment.title}
+                        />
+                    </m.div>
+                ))}
+            </div>
         </div>
     )
 }
