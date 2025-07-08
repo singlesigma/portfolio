@@ -137,17 +137,22 @@ function App() {
               <div className={tw("relative overflow-hidden mb-12 h-24 md:h-32 lg:h-40")}>
                 <m.div
                   className={tw("flex items-center whitespace-nowrap")}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
                   animate={{
                     x: [0, -2000],
                   }}
                   transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear",
+                    x: {
+                      duration: 20,
+                      repeat: Infinity,
+                      ease: "linear",
+                    },
+                    opacity: {
+                      duration: 1,
+                      delay: 1.6
+                    }
                   }}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 1.6 }}
                 >
                   {Array.from({ length: 10 }).map((_, i) => (
                     <div key={i} className={tw("flex items-center gap-8 mr-8")}>
