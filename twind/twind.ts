@@ -6,14 +6,14 @@ setup({
   theme: {
     extend: {
       colors: {
-        background: "#000000",
-        surface: "#1d1d1f",
-        surfaceSecondary: "#2d2d30",
+        background: "#0a0a0a",
+        surface: "#111111",
+        surfaceSecondary: "#1a1a1a",
         textPrimary: "#f5f5f7",
         textSecondary: "#a1a1a6",
-        accent: "#007aff",
-        accentHover: "#0056cc",
-        border: "rgba(255, 255, 255, 0.1)",
+        accent: "#00ff88",
+        accentHover: "#00cc6a",
+        border: "rgba(0, 255, 136, 0.2)",
       },
       fontFamily: {
         'sf': ['SF Pro Display', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],

@@ -113,12 +113,27 @@ function App() {
 
         {/* Hero Section with Creative Entrance */}
         <section className={tw("min-h-screen flex items-center justify-center relative overflow-hidden")}>
+          {/* Hero Image positioned behind text */}
+          <div className={tw("absolute inset-0 flex items-end justify-center z-0")}>
+            <m.img
+              src="/marban.png"
+              alt="Profile"
+              className={tw("h-96 md:h-[500px] lg:h-[650px] object-contain smooth-transform opacity-80")}
+              initial={{ opacity: 0, y: 200, scale: 0.8 }}
+              animate={{ opacity: 0.8, y: 0, scale: 1 }}
+              transition={{ duration: 2, delay: 3.2, ease: [0.25, 0.46, 0.45, 0.94] }}
+              style={{
+                filter: "drop-shadow(0 20px 40px rgba(0, 122, 255, 0.3))"
+              }}
+            />
+          </div>
+
           <m.div
             style={{ 
               y: heroParallax,
               x: mousePosition.x * 0.1,
             }}
-            className={tw("text-center z-10 px-6 smooth-transform")}
+            className={tw("text-center z-20 px-6 smooth-transform")}
           >
             <m.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -135,7 +150,7 @@ function App() {
               </m.p>
               
               {/* Continuous Scrolling Marquee */}
-              <div className={tw("relative overflow-hidden mb-12 h-32 md:h-48 lg:h-64")}>
+              <div className={tw("relative overflow-hidden mb-12 h-32 md:h-48 lg:h-64 z-30")}>
                 <m.div
                   className={tw("flex items-center whitespace-nowrap")}
                   animate={{
@@ -153,7 +168,7 @@ function App() {
                   {Array.from({ length: 10 }).map((_, i) => (
                     <div key={i} className={tw("flex items-center gap-8 mr-8")}>
                       <span className={tw("text-6xl md:text-8xl lg:text-[10rem] font-black text-textPrimary hero-text")}>
-                        Designer
+                        Developer
                       </span>
                       <m.div
                         className={tw("text-4xl md:text-6xl lg:text-8xl")}
@@ -170,7 +185,7 @@ function App() {
                         ✦
                       </m.div>
                       <span className={tw("text-6xl md:text-8xl lg:text-[10rem] font-black text-gradient hero-text")}>
-                        Developer
+                        Designer
                       </span>
                       <m.div
                         className={tw("text-4xl md:text-6xl lg:text-8xl")}
@@ -205,21 +220,6 @@ function App() {
               <Icons />
             </m.div>
           </Suspense>
-          
-          {/* Hero Image with Creative Animation */}
-          <div className={tw("absolute bottom-0 w-full flex justify-center")}>
-            <m.img
-              src="/marban.png"
-              alt="Profile"
-              className={tw("h-96 md:h-[500px] lg:h-[650px] object-contain smooth-transform")}
-              initial={{ opacity: 0, y: 200, scale: 0.8 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 2, delay: 3.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-              style={{
-                filter: "drop-shadow(0 20px 40px rgba(0, 122, 255, 0.3))"
-              }}
-            />
-          </div>
         </section>
 
         {/* About Section */}
@@ -275,7 +275,77 @@ function App() {
           <CommentSection />
         </section>
 
-        <LastSegment />
+        {/* Contact Section */}
+        <section className={tw("py-32 px-6 relative overflow-hidden")}>
+          <div className={tw("max-w-4xl mx-auto text-center")}>
+            <m.div
+              className={tw("flex justify-center mb-8")}
+              initial={{ scale: 0, rotate: -180 }}
+              whileInView={{ scale: 1, rotate: 0 }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              viewport={{ once: true }}
+            >
+              <m.div
+                animate={{ 
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ 
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className={tw("text-6xl")}
+              >
+                🚀
+              </m.div>
+            </m.div>
+
+            <m.h1
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className={tw("text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-textPrimary smooth-text")}
+            >
+              Ready to <span className={tw("text-gradient")}>collaborate</span>?
+            </m.h1>
+            
+            <m.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className={tw("text-xl md:text-2xl text-textSecondary mb-12 leading-relaxed max-w-3xl mx-auto")}
+            >
+              Let's turn your ideas into reality with cutting-edge technology and creative design solutions.
+            </m.p>
+
+            <m.a
+              href="mailto:iamgowthamsree@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={tw("inline-flex items-center gap-3 apple-button text-lg group")}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span>Start a Project</span>
+              <m.div
+                animate={{ x: [0, 5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                →
+              </m.div>
+            </m.a>
+          </div>
+        </section>
+
         <Footer />
       </main>
     </LazyMotion>
