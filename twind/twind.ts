@@ -1,4 +1,4 @@
-import { setup, tw } from "@twind/core";
+import { setup, tw as baseTw } from "@twind/core";
 import presetAutoprefix from "@twind/preset-autoprefix";
 import presetTailwind from "@twind/preset-tailwind";
 
@@ -44,4 +44,22 @@ setup({
   ],
 });
 
-export {tw}
+// Wrap the tw function with error handling to prevent undefined errors
+export const tw = (...args: (string | undefined | null | false)[]): string => {
+  try {
+    // Filter out undefined, null, and false values, then join valid strings
+    const validClasses = args.filter((arg): arg is string => 
+      typeof arg === 'string' && arg.length > 0
+    );
+    
+    if (validClasses.length === 0) {
+      return '';
+    }
+    
+    return baseTw(validClasses.join(' '));
+  } catch (error) {
+    console.warn('Twind error:', error);
+    // Return empty string as fallback to prevent crashes
+    return '';
+  }
+};
