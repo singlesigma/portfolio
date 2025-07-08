@@ -28,13 +28,13 @@ export default function Comments({
             <Quote className={tw("absolute top-6 right-6 w-6 h-6 text-accent opacity-30")} />
             
             <div className={tw("flex gap-4 items-start mb-6")}>
-                <div className={tw("relative flex-shrink-0")}>
+                <div className={tw("relative flex-shrink-0 overflow-hidden")}>
                     <LazyImage
                         src={image ?? ""}
                         alt={name}
-                        className={tw("w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-border")}
+                        className={tw("w-16 h-16 md:w-20 md:h-20 object-cover rounded-full border-2 border-accent/30")}
                     />
-                    <div className={tw("absolute -inset-1 bg-accent rounded-full opacity-20 blur-sm")} />
+                    <div className={tw("absolute -inset-0.5 bg-gradient-to-r from-accent to-blue-500 rounded-full opacity-30 blur-sm -z-10")} />
                 </div>
                 
                 <div className={tw("flex-1")}>

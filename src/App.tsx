@@ -97,17 +97,17 @@ function App() {
 
         {/* Hero Section with Creative Entrance */}
         <section className={tw("min-h-screen flex items-center justify-center relative overflow-hidden")}>
-          {/* Hero Image positioned behind text */}
-          <div className={tw("absolute inset-0 flex items-end justify-center z-0")}>
+          {/* Hero Image positioned above text */}
+          <div className={tw("absolute inset-0 flex items-center justify-center z-10 pointer-events-none")}>
             <m.img
               src="/marban.png"
               alt="Profile"
-              className={tw("h-96 md:h-[500px] lg:h-[650px] object-contain smooth-transform opacity-80")}
+              className={tw("h-80 md:h-96 lg:h-[500px] object-contain smooth-transform")}
               initial={{ opacity: 0, y: 200, scale: 0.8 }}
-              animate={{ opacity: 0.8, y: 0, scale: 1 }}
+              animate={{ opacity: 1, y: -50, scale: 1 }}
               transition={{ duration: 2, delay: 3.2, ease: [0.25, 0.46, 0.45, 0.94] }}
               style={{
-                filter: "drop-shadow(0 20px 40px rgba(0, 122, 255, 0.3))"
+                filter: "drop-shadow(0 20px 40px rgba(0, 122, 255, 0.4))"
               }}
             />
           </div>
@@ -117,7 +117,7 @@ function App() {
               y: heroParallax,
               x: mousePosition.x * 0.1,
             }}
-            className={tw("text-center z-20 px-6 smooth-transform")}
+            className={tw("text-center z-5 px-6 smooth-transform")}
           >
             <m.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -134,7 +134,7 @@ function App() {
               </m.p>
               
               {/* Continuous Scrolling Marquee */}
-              <div className={tw("relative overflow-hidden mb-12 h-32 md:h-48 lg:h-64 z-30")}>
+              <div className={tw("relative overflow-hidden mb-12 h-24 md:h-32 lg:h-40")}>
                 <m.div
                   className={tw("flex items-center whitespace-nowrap")}
                   animate={{
@@ -151,11 +151,11 @@ function App() {
                 >
                   {Array.from({ length: 10 }).map((_, i) => (
                     <div key={i} className={tw("flex items-center gap-8 mr-8")}>
-                      <span className={tw("text-6xl md:text-8xl lg:text-[10rem] font-black text-textPrimary hero-text")}>
+                      <span className={tw("text-4xl md:text-6xl lg:text-8xl font-black text-textPrimary hero-text")}>
                         Developer
                       </span>
                       <m.div
-                        className={tw("text-4xl md:text-6xl lg:text-8xl")}
+                        className={tw("text-2xl md:text-4xl lg:text-6xl")}
                         animate={{ 
                           rotate: [0, 360],
                           scale: [1, 1.2, 1]
@@ -168,11 +168,11 @@ function App() {
                       >
                         ✦
                       </m.div>
-                      <span className={tw("text-6xl md:text-8xl lg:text-[10rem] font-black text-gradient hero-text")}>
+                      <span className={tw("text-4xl md:text-6xl lg:text-8xl font-black text-gradient hero-text")}>
                         Designer
                       </span>
                       <m.div
-                        className={tw("text-4xl md:text-6xl lg:text-8xl")}
+                        className={tw("text-2xl md:text-4xl lg:text-6xl")}
                         animate={{ 
                           rotate: [0, -360],
                           scale: [1, 1.2, 1]
@@ -207,12 +207,29 @@ function App() {
         </section>
 
         {/* About Section */}
-        <section className={tw("py-32 px-6 max-w-6xl mx-auto relative")}>
-          <div className={tw("glass p-8 md:p-16 relative overflow-hidden")}>
-            <Corner />
-            <Paragraph
-              text="I am Gowtham Sree Charan Reddy, currently pursuing CSE with AIML at SRMIST. I love developing and designing digital experiences that make a difference. My journey in tech is just beginning, and I'm excited to learn, grow, and create amazing projects that impact people's lives. Every line of code I write is a step towards building something extraordinary."
-            />
+        <section className={tw("py-24 px-6 max-w-4xl mx-auto relative")}>
+          <m.div
+            className={tw("text-center")}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <m.h2 className={tw("text-3xl md:text-5xl font-bold mb-8 text-textPrimary")}>
+              About <span className={tw("text-gradient")}>Me</span>
+            </m.h2>
+            
+            <m.p className={tw("text-lg md:text-xl text-textSecondary leading-relaxed mb-8")}>
+              I am <span className={tw("text-accent font-semibold")}>Gowtham Sree Charan Reddy</span>, 
+              currently pursuing CSE with AIML at SRMIST. I love developing and designing digital 
+              experiences that make a difference.
+            </m.p>
+            
+            <m.p className={tw("text-base md:text-lg text-textSecondary leading-relaxed")}>
+              My journey in tech is just beginning, and I'm excited to learn, grow, and create 
+              amazing projects that impact people's lives. Every line of code I write is a step 
+              towards building something extraordinary.
+            </m.p>
           </div>
         </section>
 
