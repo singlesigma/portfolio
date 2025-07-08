@@ -93,7 +93,7 @@ function App() {
               </m.a>
             </div>
           </div>
-        </m.div>
+        </header>
 
         {/* Hero Section with Creative Entrance */}
         <section className={tw("min-h-screen flex items-center justify-center relative overflow-hidden")}>
@@ -303,7 +303,7 @@ function App() {
                 🚀
               </m.div>
             </m.div>
-
+          </m.div>
             <m.h1
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
