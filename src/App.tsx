@@ -11,7 +11,6 @@ const Corner = lazy(() => import("./components/Corner"));
 const ServicesSection = lazy(() => import("./components/Skills"));
 const CommentSection = lazy(() => import("./components/CommentSection"));
 const ProjectsSection = lazy(() => import("./components/ProjectsSection"));
-const LastSegment = lazy(() => import("./components/LastSegment"));
 const Footer = lazy(() => import("./components/Footer"));
 const Icons = lazy(() => import("./components/Icons"));
 
