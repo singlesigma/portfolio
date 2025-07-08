@@ -40,21 +40,6 @@ function App() {
       <ScrollLine />
       <FloatingElements />
       <CodeBackground parallax={backgroundParallax} />
-      
-      {/* Custom cursor */}
-      <m.div
-        className={tw("fixed w-6 h-6 bg-accent rounded-full pointer-events-none z-50 mix-blend-difference")}
-        animate={{
-          x: mousePosition.x / 2 + (typeof window !== 'undefined' ? window.innerWidth / 2 : 0) - 12,
-          y: mousePosition.y / 2 + (typeof window !== 'undefined' ? window.innerHeight / 2 : 0) - 12,
-        }}
-        transition={{
-          type: "spring",
-          stiffness: 300,
-          damping: 20,
-          mass: 0.3,
-        }}
-      />
 
       <main className={tw("min-h-screen bg-background relative")}>
         {/* Navigation */}

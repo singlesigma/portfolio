@@ -224,31 +224,6 @@ export default function CommentSection() {
             </div>
 
             {/* Organization Indicator */}
-            <m.div
-                className={tw("fixed bottom-8 right-8 glass p-4 rounded-apple")}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ 
-                    opacity: isOrganized ? 1 : 0.5, 
-                    scale: isOrganized ? 1 : 0.8 
-                }}
-                transition={{ duration: 0.3 }}
-            >
-                <div className={tw("flex items-center gap-2")}>
-                    <m.div
-                        className={tw(`w-3 h-3 rounded-full ${isOrganized ? 'bg-green-400' : 'bg-yellow-400'}`)}
-                        animate={{
-                            scale: [1, 1.2, 1],
-                        }}
-                        transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                        }}
-                    />
-                    <span className={tw("text-sm text-textSecondary")}>
-                        {isOrganized ? 'Organized' : 'Scrambled'}
-                    </span>
-                </div>
-            </m.div>
         </div>
     )
 }

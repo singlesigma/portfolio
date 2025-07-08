@@ -194,16 +194,6 @@ body {
   background: linear-gradient(180deg, #00cc6a, #00ff88);
 }
 
-/* Hide cursor for custom cursor */
-body, button, a, p, h1, h2, h3, h4, h5, h6, span, div {
-  cursor: none !important;
-}
-
-/* Ensure custom cursor is always visible */
-* {
-  cursor: none !important;
-}
-
 /* Performance optimizations */
 .gpu-accelerated {
   transform: translateZ(0);
