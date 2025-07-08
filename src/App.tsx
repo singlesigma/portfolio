@@ -93,7 +93,7 @@ function App() {
               </m.a>
             </div>
           </div>
-        </header>
+        </m.div>
 
         {/* Hero Section with Creative Entrance */}
         <section className={tw("min-h-screen flex items-center justify-center relative overflow-hidden")}>
